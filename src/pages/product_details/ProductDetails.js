@@ -31,6 +31,7 @@ const ProductDetails = () => {
         category: product.category,
         sub_category: product.sub_category,
         img: product.img,
+        quantity:1,
         customersEmail: user.email
       })
     })

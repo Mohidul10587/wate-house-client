@@ -6,7 +6,7 @@ import ProductDetails from './pages/product_details/ProductDetails'
 import Cart from './pages/cart/Cart';
 import Login from './pages/authentication/Login';
 import { Route, Routes } from 'react-router-dom'
-import Form from './pages/form/Form';
+import Form from './pages/admin/Form';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SubCategory from './pages/subCategory/SubCategory';
@@ -17,6 +17,8 @@ import RequireAuth from './pages/authentication/RequireAuth';
 import Footer from './share/footer/Footer';
 import Orders from './pages/admin/Orders';
 import UserDashboard from './pages/user/UserDashboard';
+import Dashboard from './pages/admin/Dashboard';
+import AllUser from './pages/admin/AllUser';
 
 
 function App() {
@@ -26,7 +28,7 @@ function App() {
       <div className='pb-32'>
         <Navbar />
       </div>
-      <div className='mx-8 min-h-screen'>
+      <div className='mx-8'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='category/:categoryName' element={<Category />} />
@@ -35,11 +37,33 @@ function App() {
           <Route path='cart' element={<Cart />} />
           <Route path='login' element={<Login />} />
           <Route path='signUp' element={<SignUp />} />
-          <Route path='form' element={<Form />} />
           <Route path='checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
           <Route path='payment' element={<RequireAuth><Payment /></RequireAuth>} />
           <Route path='userDashboard' element={<RequireAuth><UserDashboard /></RequireAuth>} />
           <Route path='orders' element={<RequireAuth><Orders /></RequireAuth>} />
+
+
+
+
+
+
+          <Route path='dashboard' element={<RequireAuth><Dashboard> </Dashboard></RequireAuth>}>
+            <Route index='orders' element={<Orders></Orders>}></Route>
+            <Route path='form' element={<Form></Form>}></Route>
+            <Route path='allUser' element={<AllUser></AllUser>}></Route>
+
+            
+          </Route>
+
+
+
+
+
+
+
+
+
+
         </Routes>
       </div>
       <ToastContainer />

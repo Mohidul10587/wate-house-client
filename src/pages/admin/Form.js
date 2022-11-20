@@ -90,8 +90,8 @@ const Form = () => {
 
   return (
     <div className=''>
-      <h1 className='text-center font-bold mb-6'>Upload a Product</h1>
-      <div className='flex justify-center'>
+      <h1 className=' font-bold mb-6'>Upload a Product</h1>
+      <div className=''>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">

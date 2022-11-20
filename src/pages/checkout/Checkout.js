@@ -34,7 +34,8 @@ const Checkout = () => {
     const getTotalPrice2 =  () => {
       let total = 0;
       for (let i = 0; i < products?.length; i++) {
-        total = total + parseInt(products[i].price)
+        total = total + parseInt(products[i].price)*parseInt(products[i].quantity)
+
       }
       return total;
     }
@@ -81,7 +82,7 @@ const Checkout = () => {
       })
 
 
-    fetch(`http://localhost:5001/cart/${customersEmail}`, {
+    fetch(`http://localhost:5001/cart2/${customersEmail}`, {
       method: 'DELETE',
     })
       .then(res => res.json())

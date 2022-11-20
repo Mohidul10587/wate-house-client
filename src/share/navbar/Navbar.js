@@ -22,9 +22,8 @@ const Navbar = () => {
         <ul className='flex justify-center'>
           <li className='m-3 px-3 font-bold'><Link to='/'>Home</Link></li>
           <li className='m-3 px-3 font-bold'><Link to='/cart'>Cart</Link></li>
-          <li className='m-3 px-3 font-bold'><Link to='/form'>Product Upload  Form</Link></li>
           <li className='m-3 px-3 font-bold'><Link to='/orders'>Order List</Link></li>
-          <li className='m-3 px-3 font-bold'><Link to='/userDashboard'>Dashboard</Link></li>
+          <li className='m-3 px-3 font-bold'><Link to='/dashboard'>Dashboard</Link></li>
 
           <li>{user ? <button className="btn btn-ghost" onClick={signedOut}>Sign Out</button> : <Link className="btn btn-ghost" to="/login"><button>Log In</button></Link>}</li>
         </ul>

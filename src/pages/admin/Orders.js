@@ -2,9 +2,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 
 
-
 const Orders = () => {
-
 
 
   const { data: orderedVouchers, isLoading } = useQuery('orderedVouchers', () => fetch('http://localhost:5001/orderedVoucher').then(res => res.json()))

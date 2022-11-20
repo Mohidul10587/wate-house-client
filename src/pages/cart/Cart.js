@@ -13,7 +13,7 @@ const Cart = () => {
 
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail],() => fetch(`http://localhost:5001/cart/${customersEmail}`).then(res => res.json()))
+  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`http://localhost:5001/cart/${customersEmail}`).then(res => res.json()))
 
 
 
@@ -22,7 +22,7 @@ const Cart = () => {
   const getTotalPrice = () => {
     let total = 0;
     for (let i = 0; i < products?.length; i++) {
-      total = total + parseInt(products[i].price)
+      total = total + parseInt(products[i].price)*parseInt(products[i].quantity)
     }
     return total;
   }
@@ -37,14 +37,69 @@ const Cart = () => {
   const subTotal = shippingCharge + totalPrice;
 
 
+  // increase quantity
 
 
+  const increase = (id ,p)=> {
+
+    fetch(`http://localhost:5001/cart/${id}`, {
+      method: 'PUT',
+      headers:{
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: p.name,
+        price: p.price,
+        category: p.category,
+        sub_category: p.sub_category,
+        img: p.img,
+        quantity:p.quantity+1,
+        customersEmail: user.email
+      })
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.modifiedCount) {
+          refetch()
+        }
+      })
+
+
+  }
+
+
+  const decrease = (id ,p)=> {
+
+    fetch(`http://localhost:5001/cart/${id}`, {
+      method: 'PUT',
+      headers:{
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: p.name,
+        price: p.price,
+        category: p.category,
+        sub_category: p.sub_category,
+        img: p.img,
+        quantity:p.quantity-1,
+        customersEmail: user.email
+      })
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.modifiedCount) {
+          refetch()
+        }
+      })
+
+
+  }
 
 
 
   // Delete a cart item
 
-  const handleDelete = (id,name) => {
+  const handleDelete = (id, name) => {
 
     fetch(`http://localhost:5001/cart/${id}`, {
       method: 'DELETE',
@@ -65,18 +120,32 @@ const Cart = () => {
 
   return (
 
-    <div>
+    <div className='mb-96'>
       <h1 className='text-center font-bold text-2xl'>This is Cart</h1>
 
-      <div className='flex'>
-        <div className='w-1/2'>
-          {products.map(p => <div key={p._id} className='flex justify-between w-2/3 my-2 h-20 items-center'>
-            <img className='w-16 h-10 border-2 border-black' src={p.img} alt="" />
-            <p className='w-32'>{p.name}</p>
-            <p>{p.price}</p>
-            <button onClick={() => handleDelete(p._id, p.name)}>Delete</button>
-          </div>)}
-        </div>
+      <div className='flex mt-10'>
+        <table className='w-1/2'>
+          <thead className='border-[1px] border-black'>
+            <tr>
+              <th className='w-24 text-center'>Img</th>
+              <th className='w-24 text-center'>Name</th>
+              <th className='w-24 text-center'>Price</th>
+              <th className='w-24 text-center'>Quantity</th>
+              <th className='w-24 text-center'>Delete</th>
+            </tr>
+          </thead>
+          <tbody className=''>
+            {products.map(p => <tr key={p._id} className='border-[1px] border-black'>
+              <td className='text-center'><img className='w-16 h-10 border-2 border-black ml-4' src={p.img} alt="" /></td>
+              <td className='text-center'>{p.name}</td>
+              <td className='text-center'>{p.price}</td>
+              <td className='text-center'><button className='px-2 mx-2 font-bold border-gray-600 ' onClick={() => decrease(p._id ,p)}>-</button><span className=''>{p.quantity}</span> <button className='px-2 mx-2 font-bold  border-gray-600 r' onClick={() => increase(p._id ,p)}>+</button></td>
+              <td className='text-center'><button onClick={() => handleDelete(p._id, p.name)}>Delete</button></td>
+            </tr>
+
+            )}
+          </tbody>
+        </table>
         <div className='w-1/2 mt-6 flex justify-center'>
           <div>
             <h1 className='text-xl font-bold'> Order summary</h1>
