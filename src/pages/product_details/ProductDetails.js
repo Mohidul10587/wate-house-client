@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const navigate = useNavigate()
 
 
-  const { data: product, isLoading } = useQuery('product', () => fetch(`http://localhost:5001/product/${productId}`).then(res => res.json()))
+  const { data: product, isLoading } = useQuery('product', () => fetch(`https://blooming-anchorage-14599.herokuapp.com/product/${productId}`).then(res => res.json()))
 
 
 
@@ -25,7 +25,7 @@ const ProductDetails = () => {
     }
 
 
-    fetch(`http://localhost:5001/cart/${user.email}`, {
+    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${user.email}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

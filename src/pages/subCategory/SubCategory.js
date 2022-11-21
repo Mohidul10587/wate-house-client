@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query';
-import { Link, useParams } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
 import ProductCard from '../../components/ProductCard';
 
 const SubCategory = () => {
 
   const [count, setCount] = useState(0);
-  const [size, setSize] = useState(5)
+  const [size] = useState(5)
   const [page, setPage] = useState(0);
   const query = useParams()
   const subCategoryName = query.subCategoryName;
 
-  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`http://localhost:5001/pro/${subCategoryName}`, {
+  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/pro/${subCategoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ const SubCategory = () => {
   }).then(res => res.json()))
 
   useEffect(() => {
-    fetch(`http://localhost:5001/proCount/${subCategoryName}`)
+    fetch(`https://blooming-anchorage-14599.herokuapp.com/proCount/${subCategoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [subCategoryName])

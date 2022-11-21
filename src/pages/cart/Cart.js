@@ -11,7 +11,7 @@ const Cart = () => {
 
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`http://localhost:5001/cart/${customersEmail}`, {
+  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -45,7 +45,7 @@ const Cart = () => {
 
   const increase = (id, p) => {
 
-    fetch(`http://localhost:5001/cart/${id}`, {
+    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -73,7 +73,7 @@ const Cart = () => {
 
   const decrease = (id, p) => {
 
-    fetch(`http://localhost:5001/cart/${id}`, {
+    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -104,7 +104,7 @@ const Cart = () => {
 
   const handleDelete = (id, name) => {
 
-    fetch(`http://localhost:5001/cart/${id}`, {
+    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${id}`, {
       method: 'DELETE',
 
     }).then(res => res.json())

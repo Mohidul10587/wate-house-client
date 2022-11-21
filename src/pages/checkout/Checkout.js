@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
@@ -10,7 +9,7 @@ import auth from '../../firebase.init';
 const Checkout = () => {
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail],() => fetch(`http://localhost:5001/cart/${customersEmail}`).then(res => res.json()))
+  const { data: products, refetch } = useQuery(['products', customersEmail],() => fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${customersEmail}`).then(res => res.json()))
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -67,7 +66,7 @@ const Checkout = () => {
 
     }
 
-    fetch('http://localhost:5001/orderedVoucher', {
+    fetch('https://blooming-anchorage-14599.herokuapp.com/orderedVoucher', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -82,7 +81,7 @@ const Checkout = () => {
       })
 
 
-    fetch(`http://localhost:5001/cart2/${customersEmail}`, {
+    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart2/${customersEmail}`, {
       method: 'DELETE',
     })
       .then(res => res.json())

@@ -13,7 +13,7 @@ const Dashboard = () => {
   const [admin] = useAdmin(user)
   const customersEmail = user?.email;
 
-  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user,admin], () => fetch(`http://localhost:5001/orderedVoucher/${customersEmail}`, {
+  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user,admin], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/orderedVoucher/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`

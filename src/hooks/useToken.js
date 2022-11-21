@@ -12,7 +12,7 @@ const useToken = user => {
 
         console.log('user information', user)
         if (email) {
-            fetch(`http://localhost:5001/user/${email}`, {
+            fetch(`https://blooming-anchorage-14599.herokuapp.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
