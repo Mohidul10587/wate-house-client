@@ -2,7 +2,6 @@ import React from 'react'
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-
 import auth from '../../firebase.init';
 import useToken from '../../hooks/useToken';
 

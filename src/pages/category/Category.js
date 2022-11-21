@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useQuery } from 'react-query'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import ProductCard from '../../components/ProductCard'
-import CategoryMenu from '../../share/category/CategoryMenu'
+
 
 const Category = () => {
 const [count ,setCount]= useState(0);
-const [size, setSize] = useState(5)
+const [size] = useState(5)
 const [page ,setPage]= useState(0);
 
   const query = useParams()
