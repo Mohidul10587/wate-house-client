@@ -1,30 +1,78 @@
-import React from 'react'
-import { useQuery } from 'react-query'
-import { Link, useParams } from 'react-router-dom';
-import ProductCard from '../../components/ProductCard';
-import CategoryMenu from '../../share/category/CategoryMenu';
+
+import React, { useEffect, useState } from 'react'
+import { Link} from 'react-router-dom';
 
 const Home = () => {
 
+  const [category, setCategory] = useState([])
 
-  const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5001/products').then(res => res.json()))
+
+  useEffect(() => {
+    fetch('category.json')
+      .then(res => res.json())
+      .then(data => setCategory(data))
+  }, [category])
 
 
-  if (isLoading) {
-    return <p>loading</p>
-  }
+  
   return (
-    <div className=''>
-   
+    <div className='md:min-h-[600px]'>
 
-      <div className='grid grid-cols-5 gap-3'>
 
-        {
-          products.map(product => <ProductCard key={product._id} product={product}/>)
-        }
 
+      <div>
+        <img src="b.jpeg" className='w-full max-h-[600px]' alt="" />
       </div>
 
+
+
+
+      <h1 className='font-bold text-3xl text-center mt-10'>Brows by category</h1>
+
+
+      <div className='mt-10'>
+        <h2 className='font-bold text-xl mb-4'>{category[0]?.categoryName}</h2>
+        <div className='grid grid-cols-6 gap-3'>
+          {category[0]?.categories.map(ctg => <div key={ctg.categoryName} className='h-64 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
+            <Link to={`/subCategory/${ctg.name}`} className=' '>
+              <img className='w-full h-44 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
+              <div className='flex justify-center h-20 items-center text-pink-700'>
+                <p>{ctg.name}</p>
+              </div>
+            </Link>
+          </div>)}
+        </div>
+      </div>
+
+
+      <div className='mt-10'>
+        <h2 className='font-bold text-xl mb-4'>{category[1]?.categoryName}</h2>
+        <div className='grid grid-cols-6 gap-3'>
+          {category[1]?.categories.map(ctg => <div key={ctg.categoryName} className='h-64 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
+            <Link to={`/subCategory/${ctg.name}`} >
+              <img className='w-full h-44 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
+              <div className='flex justify-center h-20 items-center text-pink-700'>
+                <p>{ctg.name}</p>
+              </div>
+            </Link>
+          </div>)}
+        </div>
+      </div>
+
+
+      <div className='mt-10'>
+        <h2 className='font-bold text-xl mb-4'>{category[2]?.categoryName}</h2>
+        <div className='grid grid-cols-6 gap-3'>
+          {category[2]?.categories.map(ctg => <div key={ctg.categoryName} className='h-64 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
+            <Link to={`/subCategory/${ctg.name}`} >
+              <img className='w-full h-44 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
+              <div className='flex justify-center h-20 items-center text-pink-700'>
+                <p>{ctg.name}</p>
+              </div>
+            </Link>
+          </div>)}
+        </div>
+      </div>
 
     </div>
   )

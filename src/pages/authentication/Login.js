@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
 
@@ -17,24 +18,26 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    
 
+    const [token] = useToken(user)
 
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
     let firebaseError;
 
-    if (loading || gLoading) {
+    if (loading) {
 
         return <div className='flex justify-center items-center h-screen'> <p>Loading</p>
         </div>
     }
 
-    if (error || gError) {
-        firebaseError = <small className='text-red-500'>{error?.message || gError?.message}</small>
+    if (error) {
+        firebaseError = <small className='text-red-500'>{error?.message}</small>
     }
-if(user || gUser){
-  navigate(from, { replace: true });
-}
 
     const onSubmit = data => {
 
@@ -42,7 +45,7 @@ if(user || gUser){
 
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='flex justify-center items-center'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-xl">Log in</h2>
@@ -112,16 +115,16 @@ if(user || gUser){
                         {firebaseError}
                         <button
                             type="submit"
-                            className="btn btn-outline w-full">Submit</button>
+                            className="btn btn-outline w-full hover:bg-pink-700">Submit</button>
 
 
                     </form>
-                    <small>Forgot password ?<Link className='text-primary' to='/updatePassword'>Reset  password </Link></small>
 
-                    <small>New to Doctors Portal <Link className='text-primary' to='/signUp'>Create new account</Link></small>
-                    <div className="divider">OR</div>
 
-                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with google</button>
+                    <small className='mb-[210px]'>New to this site  ? <Link className='text-pink-700' to='/signUp'>Create new account</Link></small>
+
+
+                  
 
 
                 </div>

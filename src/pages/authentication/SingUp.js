@@ -1,12 +1,14 @@
 import React from 'react'
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+
 import auth from '../../firebase.init';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
 
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
         createUserWithEmailAndPassword,
@@ -19,15 +21,19 @@ const SignUp = () => {
     let from = location.state?.from?.pathname || "/";
     const [updateProfile, updateError] = useUpdateProfile(auth);
 
+    console.log(user)
+    const [token] = useToken(user)
 
-    if (loading || gLoading) return <div className='flex justify-center items-center h-screen'> <p>Loading...</p>
+    console.log(user)
+
+    if (loading) return <div className='flex justify-center items-center h-screen'> <p>Loading...</p>
     </div>
     let firebaseError;
-    if (error || gError || updateError) {
-        firebaseError = <small className='text-red-500'>{error?.message || gError?.message || updateError?.message}</small>
+    if (error || updateError) {
+        firebaseError = <small className='text-red-500'>{error?.message || updateError?.message}</small>
     }
-    if (user || gUser) {
-        navigate(from, { replace: true });
+    if (token) {
+        navigate('/');
     }
     const onSubmit = async data => {
         console.log(data);
@@ -35,7 +41,7 @@ const SignUp = () => {
         await updateProfile({ displayName: data.name });
     }
     return (
-        <div className='flex justify-center items-center h-screen'>
+        <div className='flex justify-center items-center '>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body">
                     <h2 className="text-center text-xl">Sign Up</h2>
@@ -130,14 +136,14 @@ const SignUp = () => {
                         {firebaseError}
                         <button
                             type="submit"
-                            className="btn btn-outline w-full">Submit</button>
+                            className="btn btn-outline w-full hover:bg-pink-700">Submit</button>
 
 
                     </form>
-                    <small>Already have an account<Link className='text-primary ml-4' to='/logIn'>Go to Login</Link></small>
-                    <div className="divider">OR</div>
+                    <small className='mb-28'>Already have an account<Link className='text-pink-700 ml-4' to='/logIn'>Go to Login</Link></small>
 
-                    <button onClick={() => signInWithGoogle()} className="btn btn-outline">Continue with google</button>
+
+
 
 
                 </div>

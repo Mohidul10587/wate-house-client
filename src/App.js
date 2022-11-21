@@ -16,9 +16,12 @@ import SignUp from './pages/authentication/SingUp';
 import RequireAuth from './pages/authentication/RequireAuth';
 import Footer from './share/footer/Footer';
 import Orders from './pages/admin/Orders';
-import UserDashboard from './pages/user/UserDashboard';
 import Dashboard from './pages/admin/Dashboard';
 import AllUser from './pages/admin/AllUser';
+
+
+
+
 
 
 function App() {
@@ -26,7 +29,9 @@ function App() {
   return (
     <div>
       <div className='pb-32'>
-        <Navbar />
+        <Navbar  />
+    
+
       </div>
       <div className='mx-8'>
         <Routes>
@@ -34,25 +39,18 @@ function App() {
           <Route path='category/:categoryName' element={<Category />} />
           <Route path='subCategory/:subCategoryName' element={<SubCategory />} />
           <Route path='productDetails/:productId' element={<ProductDetails />} />
-          <Route path='cart' element={<Cart />} />
+          <Route path='cart' element={<RequireAuth><Cart /></RequireAuth>} />
           <Route path='login' element={<Login />} />
           <Route path='signUp' element={<SignUp />} />
           <Route path='checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
           <Route path='payment' element={<RequireAuth><Payment /></RequireAuth>} />
-          <Route path='userDashboard' element={<RequireAuth><UserDashboard /></RequireAuth>} />
-          <Route path='orders' element={<RequireAuth><Orders /></RequireAuth>} />
 
 
 
-
-
-
-          <Route path='dashboard' element={<RequireAuth><Dashboard> </Dashboard></RequireAuth>}>
+          <Route path='dashboard' element={<Dashboard> </Dashboard>}>
             <Route index='orders' element={<Orders></Orders>}></Route>
             <Route path='form' element={<Form></Form>}></Route>
             <Route path='allUser' element={<AllUser></AllUser>}></Route>
-
-            
           </Route>
 
 

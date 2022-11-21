@@ -3,14 +3,10 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 
-
-
-
-
 const Form = () => {
-  const womenFashion = ['Clothing', 'Winter Special', 'Muslim Were']
-  const healths_and_beauty = ['Bath and Body', 'Beauty Tools', 'Fragrance']
-  const watches = ['Kids', 'Laptop', 'Luggage']
+  const womenFashion = ['Clothing', 'Winter Special', 'Muslim Were',"Shoes","Watches","Jewellers"]
+  const healths_and_beauty = ['Bath and Body', 'Beauty Tools', 'Fragrance',"Hair Care", "Makeup","Mens Care"]
+  const watches = ['Kids', 'Laptop', 'Luggage',"Travel Bags","Mens Bags","Womens Bags"]
 
   const [category, setCategory] = useState([])
 
@@ -70,27 +66,25 @@ const Form = () => {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
+              authorization: `Bearer ${localStorage.getItem('accessToken')}`
+
             },
             body: JSON.stringify(product)
           })
             .then(res => res.json())
             .then(inserted => {
 
-              toast.success('Do not know ')
+              toast.success('Uploaded successfully')
               reset()
             })
         }
       })
 
-
-
   }
 
-
-
   return (
-    <div className=''>
-      <h1 className=' font-bold mb-6'>Upload a Product</h1>
+    <div className='flex justify-center'>
+    
       <div className=''>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full max-w-xs">
@@ -212,7 +206,7 @@ const Form = () => {
 
           <button
             type="submit"
-            className="btn btn-outline w-80 mt-10">Add</button>
+            className="btn btn-outline w-80 mt-10 hover:bg-pink-700">Add</button>
 
 
         </form>
