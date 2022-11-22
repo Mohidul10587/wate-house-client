@@ -29,10 +29,7 @@ const Form = () => {
     }
   }
 
-
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
-
-
 
   const imageStorageKey = '6c0277e2286d8c4a1059080d1574e2a7'
 
