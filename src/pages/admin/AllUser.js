@@ -6,7 +6,7 @@ const AllUser = () => {
 
 
   const { isLoading, data: users ,refetch} = useQuery('users', () =>
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/user`, {
+    fetch(`https://cryptic-hollows-87605.herokuapp.com/user`, {
       method: 'GET',
       headers: {
         'authorization': `Bearer ${localStorage.getItem('accessToken')}`

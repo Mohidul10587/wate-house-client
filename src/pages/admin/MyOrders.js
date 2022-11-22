@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   const customersEmail = user?.email;
 
-  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/orderedVoucher/${customersEmail}`, {
+  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`https://cryptic-hollows-87605.herokuapp.com/orderedVoucher/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`

@@ -12,7 +12,7 @@ const [page ,setPage]= useState(0);
   const query = useParams()
   const categoryName = query.categoryName;
 
-  const { data: products, isLoading } = useQuery(['products',categoryName,page,size], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/products/new?page=${page}&size=${size}&categoryName=${categoryName}`,{
+  const { data: products, isLoading } = useQuery(['products',categoryName,page,size], () => fetch(`https://cryptic-hollows-87605.herokuapp.com/products/new?page=${page}&size=${size}&categoryName=${categoryName}`,{
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -20,7 +20,7 @@ const [page ,setPage]= useState(0);
   }).then(res => res.json()))
 
   useEffect(() => {
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/productsCount/${categoryName}`)
+    fetch(`https://cryptic-hollows-87605.herokuapp.com/productsCount/${categoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [categoryName])

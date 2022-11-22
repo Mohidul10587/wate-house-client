@@ -12,7 +12,7 @@ const useToken = user => {
 
         console.log('user information', user)
         if (email) {
-            fetch(`https://blooming-anchorage-14599.herokuapp.com/user/${email}`, {
+            fetch(`https://cryptic-hollows-87605.herokuapp.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
