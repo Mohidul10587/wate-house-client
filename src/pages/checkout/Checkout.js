@@ -9,7 +9,7 @@ import auth from '../../firebase.init';
 const Checkout = () => {
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, refetch } = useQuery(['products', customersEmail],() => fetch(`http://localhost:5000/cart/${customersEmail}`).then(res => res.json()))
+  const { data: products, refetch } = useQuery(['products', customersEmail],() => fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${customersEmail}`).then(res => res.json()))
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -66,7 +66,7 @@ const Checkout = () => {
 
     }
 
-    fetch('http://localhost:5000/orderedVoucher', {
+    fetch('https://blooming-anchorage-14599.herokuapp.com/orderedVoucher', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -81,7 +81,7 @@ const Checkout = () => {
       })
 
 
-    fetch(`http://localhost:5000/cart2/${customersEmail}`, {
+    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart2/${customersEmail}`, {
       method: 'DELETE',
     })
       .then(res => res.json())

@@ -62,7 +62,7 @@ const Form = () => {
             img: imgUrl
           }
 
-          fetch('http://localhost:5000/product', {
+          fetch('https://blooming-anchorage-14599.herokuapp.com/product', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
@@ -81,7 +81,7 @@ const Form = () => {
       })
 
   }
-
+  
   return (
     <div className='flex justify-center'>
     
