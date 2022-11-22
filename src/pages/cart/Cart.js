@@ -155,19 +155,16 @@ const Cart = () => {
         <div className='sm:w-1/2  flex justify-center sm:ml-1 sm:mt-0 mt-4'>
           <div className='border-[1px] border-pink-700 sm:p-4 p-2 w-full'>
             <h1 className='text-xl font-bold'> Order summary</h1>
-            <p>Total Items : {products.length}</p>
-            <p>Total Price:{totalPrice}</p>
-            <p>Shipping Charge : {shippingCharge}</p>
-            <p>Sub Total : {subTotal}</p>
-
-        
-              <div className='flex justify-center mt-6'>
-                <button className='text-center w-full px-2 py-1 bg-pink-500 text-white rounded-md  text-sm'>  <Link to='/checkout'>Send Order</Link></button>
-
-              </div>
-              <div className='flex justify-center mt-2'>
-                <button className='text-center px-2 py-1 w-full bg-pink-500 text-white rounded-md  text-sm'>  <Link to='/'>Continue Shopping</Link></button>
-              </div>
+            <div className='font-bold w-44 flex justify-between'><p >Total Items:</p> <p>$ {products.length}</p></div>
+            <div className='font-bold w-44 flex justify-between'><p >Total Price:</p> <p>$ {totalPrice}</p></div>
+            <div className='font-bold w-44 flex justify-between'><p >Shipping Charge:</p> <p>$ {shippingCharge}</p></div>
+            <div className='font-bold w-44 flex justify-between'><p >Sub Total  :</p> <p>$ {subTotal}</p></div>
+            <div className='flex justify-center mt-6'>
+              <button className='text-center w-full px-2 py-1 bg-pink-500 text-white rounded-md  text-sm'>  <Link to='/checkout'>Send Order</Link></button>
+            </div>
+            <div className='flex justify-center mt-2'>
+              <button className='text-center px-2 py-1 w-full bg-pink-500 text-white rounded-md  text-sm'>  <Link to='/'>Continue Shopping</Link></button>
+            </div>
 
           </div>
         </div>
