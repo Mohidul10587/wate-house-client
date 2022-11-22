@@ -1,0 +1,9 @@
+import { useState, createContext } from "react";
+// import ReactDOM from "react-dom/client";
+
+//  const user='mohid'
+
+
+
+// export const UserContext = createContext('mohid')
+

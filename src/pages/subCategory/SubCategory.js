@@ -11,7 +11,7 @@ const SubCategory = () => {
   const query = useParams()
   const subCategoryName = query.subCategoryName;
 
-  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/pro/${subCategoryName}`, {
+  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`http://localhost:5000/pro/${subCategoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ const SubCategory = () => {
   }).then(res => res.json()))
 
   useEffect(() => {
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/proCount/${subCategoryName}`)
+    fetch(`http://localhost:5000/proCount/${subCategoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [subCategoryName])
@@ -27,11 +27,11 @@ const SubCategory = () => {
 
 
   if (isLoading) {
-    return <div className='md:min-h-[600px]'> <p>loading</p></div>
+    return <div className='min-h-[600px]'> <p>loading</p></div>
   }
 
   return (
-    <div className='md:min-h-[600px]'>
+    <div className='min-h-[600px]'>
         
     <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  gap-3'>
 

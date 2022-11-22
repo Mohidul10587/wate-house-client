@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 const Orders = () => {
 
 
-  const { data: orderedVouchers, isLoading, refetch } = useQuery('orderedVouchers', () => fetch('https://blooming-anchorage-14599.herokuapp.com/orderedVoucher', {
+  const { data: orderedVouchers, isLoading, refetch } = useQuery('orderedVouchers', () => fetch('http://localhost:5000/orderedVoucher', {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,7 @@ const Orders = () => {
 
   const deleteVoucher = id => {
 
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/orderedVoucher/${id}`, {
+    fetch(`http://localhost:5000/orderedVoucher/${id}`, {
       method: 'DELETE',
     }).then(res => res.json())
       .then(data => {
@@ -32,10 +32,10 @@ const Orders = () => {
 
 
   if (isLoading) {
-    return <p>loading</p>
+    return <p className='min-h-[600px]'>loading</p>
   }
   return (
-    <div className=''>
+    <div className='min-h-[600px]'>
 
 
       <div className=''>

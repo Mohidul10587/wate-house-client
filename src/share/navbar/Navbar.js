@@ -7,23 +7,23 @@ import CategoryMenu from '../category/CategoryMenu'
 import { AiOutlineShoppingCart,AiOutlineHome ,AiOutlineLogin} from 'react-icons/ai'
 import { FaRegUser } from 'react-icons/fa'
 import { VscSignOut } from 'react-icons/vsc'
-import Dashboard from '../../pages/admin/Dashboard';
+import { createContext, useContext } from "react";
+import { UserContext } from '../../App';
+
+
+
 
 const Navbar = () => {
 
-  const [dropdown, setDropdown] = useState(true)
+  const value = useContext(UserContext);
 
+  const [dropdown, setDropdown] = useState(true)
   const [count, setCount] = useState(0);
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
   const navigate = useNavigate()
 
 
-  useEffect(() => {
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/cartProductsCount/${customersEmail}`)
-      .then(res => res.json())
-      .then(data => setCount(data.count))
-  }, [customersEmail, count])
 
   const signedOut = () => {
     signOut(auth);
@@ -41,7 +41,7 @@ const Navbar = () => {
    
     <div className='sm:h-24 h-14 bg-pink-800 fixed z-30 w-full'>
     <div className='sm:h-24 h-14 bg-pink-800 fixed flex justify-between items-center z-30 w-full '>
-      <Link to='/'> <p className=' font-bold py-2 text-white ml-4 sm:text-3xl text-xl'>LG</p></Link>
+      <Link to='/'> <p className=' font-bold py-2 text-white ml-4 sm:text-3xl text-xl'>LG </p></Link>
 
 
         {/* menu for desktop device */}
@@ -50,7 +50,7 @@ const Navbar = () => {
 
           <Link to='/'> <p className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white'><AiOutlineHome/></p></Link>
 
-          <Link to='/cart'> <p className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white'><AiOutlineShoppingCart /> </p></Link>
+          <Link to='/cart'> <div className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white flex'><AiOutlineShoppingCart /> <p className='font-normal text-sm'><sup>{value.countCartProducts}</sup></p> </div> </Link>
 
           {user ? <button className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white' onClick={signedOut}><VscSignOut/></button> : <Link to="/login"><button className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white' ><AiOutlineLogin/></button></Link>}
         </div>
