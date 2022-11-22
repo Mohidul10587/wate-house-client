@@ -31,12 +31,12 @@ function App() {
 
   return (
     <div>
-      <div className='pb-32'>
+      <div>
         <Navbar />
 
 
       </div>
-      <div className='mx-8'>
+      <div className='sm:px-2 sm:pt-[100px] pt-[60px]'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='category/:categoryName' element={<Category />} />

@@ -29,14 +29,16 @@ const Navbar = () => {
   }
 
   return (
-    <div className='h-24 bg-pink-800 fixed z-30 w-full'>
-      <div className='h-24 bg-pink-800 fixed flex justify-between items-center z-30 w-full '>
-        <Link to='/'> <p className=' font-bold py-2 text-white ml-4 sm:text-3xl text-xl'>LOGO</p></Link>
-        <div className='h-20 text-white flex justify-center items-center w-full'>
+    <div className='sm:h-24 h-14 bg-pink-800 fixed z-30 w-full'>
+      <div className='sm:h-24 h-14 bg-pink-800 fixed flex justify-between items-center z-30 w-full '>
+        <Link to='/'> <p className=' font-bold py-2 text-white ml-4 sm:text-3xl text-xl'>LG</p></Link>
+       
+        <div className='sm:h-24 h-14 text-white flex justify-center items-center w-full'>
           <ul className='flex justify-center'>
+          {user && <Link className='' to='dashboard'><li className='m-3 px-3 font-bold'>Dashboard</li></Link>}
+
             <li className='sm:mx-3 mx-1 my-3 px-3 font-bold'><Link to='/'>Home</Link></li>
 
-            {user && <Link className='sm:block hidden' to='dashboard'><li className='m-3 px-3 font-bold'>Dashboard</li></Link>}
             {user && <p className='sm:mx-3 mx-1 my-3  px-3 font-bold sm:block hidden'>{user?.displayName}</p>}
           </ul>
         </div>
@@ -50,6 +52,7 @@ const Navbar = () => {
 
       </div>
       <CategoryMenu />
+
     </div>
   )
 }
