@@ -18,6 +18,9 @@ import Footer from './share/footer/Footer';
 import Orders from './pages/admin/Orders';
 import Dashboard from './pages/admin/Dashboard';
 import AllUser from './pages/admin/AllUser';
+import MyOrders from './pages/admin/MyOrders';
+import RequireAdmin from './pages/authentication/RequireAdmin';
+import Profile from './pages/admin/Profile';
 
 
 
@@ -29,8 +32,8 @@ function App() {
   return (
     <div>
       <div className='pb-32'>
-        <Navbar  />
-    
+        <Navbar />
+
 
       </div>
       <div className='mx-8'>
@@ -47,19 +50,13 @@ function App() {
 
 
 
-          <Route path='dashboard' element={<Dashboard> </Dashboard>}>
-            <Route index='orders' element={<Orders></Orders>}></Route>
-            <Route path='form' element={<Form></Form>}></Route>
-            <Route path='allUser' element={<AllUser></AllUser>}></Route>
+          <Route path='dashboard' element={<RequireAuth><Dashboard /> </RequireAuth>}>
+            <Route index='profile' element={<Profile></Profile>}></Route>
+            <Route path='MyOrders' element={<MyOrders></MyOrders>}></Route>
+            <Route path='AllOrders' element={<RequireAdmin><Orders /></RequireAdmin>}></Route>
+            <Route path='form' element={<RequireAdmin><Form /></RequireAdmin>}></Route>
+            <Route path='allUser' element={<RequireAdmin><AllUser /></RequireAdmin>}></Route>
           </Route>
-
-
-
-
-
-
-
-
 
 
         </Routes>
