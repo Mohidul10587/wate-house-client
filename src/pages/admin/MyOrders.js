@@ -38,23 +38,28 @@ const MyOrders = () => {
        
        </div></div>: <div className='md:min-h-[600px]'>
       
-      <div className='w-1/2 '>
+      <div className='w-full '>
  
-        {orderedVouchers?.map(px => <div key={px._id} className='w-2/3 mb-10'>
-          <p className='w-96 flex justify-between'><span className='font-bold'>Customer's Name:</span>{px.name}</p>
-          <p className='w-96 flex justify-between'><span className='font-bold'>Send Money from:</span>{px.bkashNumber}</p>
-          <p className='w-96 flex justify-between'><span className='font-bold'>TrxID:</span>{px.trxID}</p>
-          <p className='w-96 flex justify-between'><span className='font-bold'>Payed amount:</span>{px.amount}</p>
-          <p className='w-96 flex justify-between'><span className='font-bold'>Total Price:</span>{px.requiredPrice}</p>
-          <p className='w-96 flex justify-between'><span className='font-bold'>Address:</span>{px.address} , {px.city}</p>
- 
-          <div className='group '>
-            <p className='font-bold'>Ordered Items</p>
-            <div className='hidden group-hover:flex justify-between'>
-              {px.orderedProduct?.map(p => <p key={p._id}>{p.name}</p>)}
-            </div>
+      {orderedVouchers?.map(px => <div key={px._id} className='mb-10 flex justify-between border-2 border-pink-700 p-4'>
+          <div className='w-1/2'>
+            <p className=''><span className='font-bold mr-2'>Customer's Name:</span>{px.name}</p>
+            <p className=''><span className='font-bold mr-2'>Send Money from:</span>{px.bkashNumber}</p>
+            <p className=''><span className='font-bold mr-2'>TrxID:</span>{px.trxID}</p>
+            <p className=''><span className='font-bold mr-2'>Payed amount:</span>{px.amount}</p>
+            <p className=''><span className='font-bold mr-2'>Total Price:</span>{px.requiredPrice}</p>
+            <p className=''><span className='font-bold mr-2'>Address:</span>{px.address} , {px.city}</p>
+
           </div>
- 
+          <div className='w-1/2 relative'>
+            <p className='font-bold'>Ordered Items</p>
+            <div>
+              {px.orderedProduct?.map(p => <div key={p._id}>
+                <p >{p.name}</p>
+              </div>)}
+            </div>
+
+          </div>
+
         </div>)}
  
       </div>

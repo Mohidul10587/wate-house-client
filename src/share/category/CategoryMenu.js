@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const CategoryMenu = () => {
     return (
          <div>
-            <ul className='flex justify-center fixed top-16 w-full z-30'>
+            <ul className='md:flex hidden justify-center fixed top-16 w-full z-30'>
                 <li className='py-1 group text-white mx-5 '> <Link to='/category/Women Fashion'>Women's Fashion</Link>
 
                     <ul className='hidden group-hover:block bg-pink-800 text-white pt-4 px-2 fixed pb-2 rounded rounded-b-md'>

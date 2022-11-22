@@ -32,25 +32,25 @@ const SubCategory = () => {
 
   return (
     <div className='md:min-h-[600px]'>
-      <h1> {subCategoryName} </h1>
-      <div className='grid grid-cols-5 gap-3'>
+        
+    <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  gap-3'>
 
-        {
-          products.map(product => <ProductCard key={product._id} product={product} />)
-        }
-      </div>
+    {
+      products.map(product => <ProductCard key={product._id} product={product}/>)
+    }
+
+  </div>
 
 
-
-      <div className='flex justify-center'>
-        <div className='mt-10'>
-          {
-            [...Array(Math.ceil(count / size)).keys()]?.map(number => <button key={number} className={page === number ? 'bg-pink-700 px-1 m-1  text-white border-[1px] border-pink-700 text-xs font-bold' : 'bg-white px-1 m-1  border-[1px] border-pink-700 text-xs font-bold'} onClick={() => setPage(number)}>{number}</button>)
-          }
-        </div>
-      </div>
-
+  <div className='flex justify-center'>
+    <div className='mt-10'>
+      {
+        [...Array(Math.ceil(count / size)).keys()]?.map(number => <button key={number} className={page === number ? 'bg-pink-700 px-1 m-1  text-white border-[1px] border-pink-700 text-xs font-bold' : 'bg-white px-1 m-1  border-[1px] border-pink-700 text-xs font-bold'} onClick={() => setPage(number)}>{number}</button>)
+      }
     </div>
+  </div>
+
+</div>
   )
 }
 

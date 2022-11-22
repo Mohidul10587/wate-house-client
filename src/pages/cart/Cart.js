@@ -129,8 +129,8 @@ const Cart = () => {
     <div className='md:min-h-[600px]'>
       <h1 className='text-center font-bold text-2xl'>This is Cart</h1>
 
-      <div className='flex mt-10'>
-        <table className='w-1/2'>
+      <div className='sm:flex mt-10'>
+        <table className='sm:w-1/2'>
           <thead className='border-[1px] border-pink-700'>
             <tr>
               <th className='w-24 text-center'>Img</th>
@@ -142,18 +142,18 @@ const Cart = () => {
           </thead>
           <tbody className=''>
             {products.map(p => <tr key={p._id} className='border-[1px] border-pink-700'>
-              <td className='text-center'><img className='w-16 h-10 border-[1px] p-2 border-pink-700 ml-4' src={p.img} alt="" /></td>
+              <td className='text-center'><img className='sm:w-16 w-12 h-10 border-[1px] sm:p-2 border-pink-700 sm:ml-4' src={p.img} alt="" /></td>
               <td className='text-center'>{p.name}</td>
               <td className='text-center'>{p.price}</td>
-              <td className='text-center'><button className='px-2 mx-2 font-bold border-gray-600 ' onClick={() => decrease(p._id, p)}>-</button><span className=''>{p.quantity}</span> <button className='px-2 mx-2 font-bold  border-gray-600 r' onClick={() => increase(p._id, p)}>+</button></td>
-              <td className='text-center'><button onClick={() => handleDelete(p._id, p.name)}>Delete</button></td>
+              <td className='text-center'><button className='sm:px-2 sm:mx-2 mx-1 font-bold border-gray-600 ' onClick={() => decrease(p._id, p)}>-</button><span className=''>{p.quantity}</span> <button className='px-2 mx-2 font-bold  border-gray-600 r' onClick={() => increase(p._id, p)}>+</button></td>
+              <td className='text-center'><button className='bg-red-700 px-2 py-1 text-white rounded-md' onClick={() => handleDelete(p._id, p.name)}>Delete</button></td>
             </tr>
 
             )}
           </tbody>
         </table>
-        <div className='w-1/2  flex justify-center '>
-          <div className='border-[1px] border-pink-700 p-4'>
+        <div className='sm:w-1/2  flex justify-center sm:ml-1 sm:mt-0 mt-4'>
+          <div className='border-[1px] border-pink-700 sm:p-4 p-2 w-full'>
             <h1 className='text-xl font-bold'> Order summary</h1>
             <p>Total Items : {products.length}</p>
             <p>Total Price:{totalPrice}</p>

@@ -31,12 +31,12 @@ const Home = () => {
 
 
       <div className='mt-10'>
-        <h2 className='font-bold text-xl mb-4'>{category[0]?.categoryName}</h2>
-        <div className='grid grid-cols-6 gap-3'>
-          {category[0]?.categories.map(ctg => <div key={ctg.categoryName} className='h-64 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
-            <Link to={`/subCategory/${ctg.name}`} className=' '>
-              <img className='w-full h-44 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
-              <div className='flex justify-center h-20 items-center text-pink-700'>
+        <h2 className='font-bold text-xl mb-4 sm:text-left text-center'>{category[0]?.categoryName}</h2>
+        <div className='grid sm:grid-cols-6 grid-cols-2 place-items-center gap-3'>
+          {category[0]?.categories.map(ctg => <div key={ctg.categoryName} className=' w-full sm:h-64 h-44 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
+            <Link to={`/subCategory/${ctg.name}`} className=''>
+              <img className='w-full sm:h-44 h-32 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
+              <div className='flex justify-center sm:h-20 h-10 items-center text-pink-700'>
                 <p>{ctg.name}</p>
               </div>
             </Link>
@@ -45,13 +45,14 @@ const Home = () => {
       </div>
 
 
+
       <div className='mt-10'>
-        <h2 className='font-bold text-xl mb-4'>{category[1]?.categoryName}</h2>
-        <div className='grid grid-cols-6 gap-3'>
-          {category[1]?.categories.map(ctg => <div key={ctg.categoryName} className='h-64 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
-            <Link to={`/subCategory/${ctg.name}`} >
-              <img className='w-full h-44 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
-              <div className='flex justify-center h-20 items-center text-pink-700'>
+        <h2 className='font-bold text-xl mb-4 sm:text-left text-center'>{category[1]?.categoryName}</h2>
+        <div className='grid sm:grid-cols-6 grid-cols-2 place-items-center gap-3'>
+          {category[1]?.categories.map(ctg => <div key={ctg.categoryName} className= ' w-full sm:h-64 h-44 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
+            <Link to={`/subCategory/${ctg.name}`} className=''>
+              <img className='w-full sm:h-44 h-32 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
+              <div className='flex justify-center sm:h-20 h-10 items-center text-pink-700'>
                 <p>{ctg.name}</p>
               </div>
             </Link>
@@ -60,13 +61,14 @@ const Home = () => {
       </div>
 
 
+    
       <div className='mt-10'>
-        <h2 className='font-bold text-xl mb-4'>{category[2]?.categoryName}</h2>
-        <div className='grid grid-cols-6 gap-3'>
-          {category[2]?.categories.map(ctg => <div key={ctg.categoryName} className='h-64 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
-            <Link to={`/subCategory/${ctg.name}`} >
-              <img className='w-full h-44 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
-              <div className='flex justify-center h-20 items-center text-pink-700'>
+        <h2 className='font-bold text-xl mb-4 sm:text-left text-center'>{category[2]?.categoryName}</h2>
+        <div className='grid sm:grid-cols-6 grid-cols-2 place-items-center gap-3'>
+          {category[2]?.categories.map(ctg => <div key={ctg.categoryName} className= ' w-full sm:h-64 h-44 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
+            <Link to={`/subCategory/${ctg.name}`} className=''>
+              <img className='w-full sm:h-44 h-32 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
+              <div className='flex justify-center sm:h-20 h-10 items-center text-pink-700'>
                 <p>{ctg.name}</p>
               </div>
             </Link>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const ProductCard = ({ product }) => {
     return (
-        <div className='h-64 border-[1px] border-pink-900 overflow-hidden rounded-lg'>
+        <div className='h-64 w-full border-[1px] border-pink-900 overflow-hidden rounded-lg'>
             <Link to={`/productDetails/${product._id}`} className=''>
 
 

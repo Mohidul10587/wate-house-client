@@ -6,7 +6,7 @@ const Footer = () => {
   return (<div className="mt-20">
     <div className="bg-pink-700 flex p-3">
       <div className="w-1/2 p-6 text-white border-r">
-        <p className="text-xl">Address</p><p className="w-24 h-0.5 bg-white mt-4 mb-4"></p><p className="text-white">Gaibandha, Gobindogaunge <br /> Bangladesh. Phone : 01704710587 <br /> Email :<br/> mohid10587@gmail.com</p></div>
+        <p className="text-xl">Address</p><p className="w-24 h-0.5 bg-white mt-4 mb-4"></p><p className="text-white">Vabanipur, Gazipur <br /> Bangladesh. Phone : 01704710587 <br /> Email :<br/> mohid10587@gmail.com</p></div>
         <div className="w-1/2 px-6 pt-6"><div className="text-white"><h1 className="text-xl text-white">Explore On</h1><p className="w-24 h-0.5 bg-white mt-4 mb-4"></p><p className="hover:text-white"><Link to="/">Home</Link></p>
         <p className="hover:text-white"><Link to="/">Contact</Link></p>
         <p className="hover:text-white"><Link to="/">About</Link></p>

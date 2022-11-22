@@ -63,17 +63,17 @@ const ProductDetails = () => {
       <h1 className='text-3xl text-center'>Product Details</h1>
       <div className='flex justify-center mt-10'>
 
-        <div className=' border-2 border-pink-900 overflow-hidden rounded-lg w-10/12  flex py-8'>
-          <img className='w-1/2 h-80' src={product.img} alt="" />
-          <div className='p-10 relative w-1/2 border-l-[1px] border-pink-700'>
+        <div className=' border-2 border-pink-900 overflow-hidden rounded-lg w-10/12  sm:flex py-8'>
+          <img className='sm:w-1/2 sm:h-80' src={product.img} alt="" />
+          <div className='sm:p-10 p-2 relative sm:w-1/2 sm:border-l-[1px] border-pink-700'>
             <p className='text-2xl'>{product.name}</p>
             <p className=''>💝Just awesome💝 Totally impressed❤️ Quality 100%👌 & same as picture. Product received as per as seller commitment. Thanks and highly recommend ❤️❤️ </p>
 
             <p className='text-2xl'>${product.price}</p>
 
-            <div className='absolute bottom-4'>
-              <button className='rounded-lg px-3 py-2 bg-pink-500 text-white w-32' onClick={addToCart}>Add to curt </button>
-              <Link to='/'><button className='rounded-lg px-3 py-2 bg-pink-500 text-white w-32 ml-2'>Go Back</button></Link>
+            <div className='sm:absolute sm:bottom-4 '>
+              <button className='rounded-lg px-3 py-2 bg-pink-500 text-white w-32 sm:mb-0 mb-3' onClick={addToCart}>Add to curt </button>
+              <Link to='/'><button className='rounded-lg px-3 py-2 bg-pink-500 text-white w-32 sm:ml-2'>Go Back</button></Link>
             </div>
 
           </div>
