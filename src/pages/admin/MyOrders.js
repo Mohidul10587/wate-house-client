@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   const customersEmail = user?.email;
 
-  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/orderedVoucher/${customersEmail}`, {
+  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`http://localhost:5000/orderedVoucher/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -20,7 +20,7 @@ const MyOrders = () => {
 
 
   if (isLoading) {
-    return <div className='md:min-h-[600px]'>
+    return <div className='min-h-[600px]'>
       Loading
     </div>
   }
@@ -30,17 +30,17 @@ const MyOrders = () => {
 
   return (
 
-    <div className='md:min-h-[600px] '>
+    <div className='min-h-[600px] '>
 
       {orderedVouchers.length === 0 ?
-        <div className='flex justify-center items-center md:min-h-[600px] '>
+        <div className='flex justify-center items-center  '>
           <div className='w-96'>
             <p className='text-3xl text-pink-700 font-bold'>Hi {user?.displayName}</p>
             <p className='text-xl text-pink-700 font-bold'>Please Buy something and see your shopping history here . Thank you for visiting our online shop</p>
           </div>
         </div>
         :
-        <div className='md:min-h-[600px]'>
+        <div className=''>
           <div className='w-full grid grid-cols-1 place-items-center  gap-y-4'>
             {orderedVouchers?.map(px => <div key={px._id} className=' sm:w-full w-[305px] sm:flex justify-between border-2 border-pink-700 sm:p-4 p-3'>
               <div className='sm:w-1/2'>

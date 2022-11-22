@@ -6,13 +6,13 @@ import ProductCard from '../../components/ProductCard'
 
 const Category = () => {
 const [count ,setCount]= useState(0);
-const [size] = useState(5)
+const [size] = useState(10)
 const [page ,setPage]= useState(0);
 
   const query = useParams()
   const categoryName = query.categoryName;
 
-  const { data: products, isLoading } = useQuery(['products',categoryName,page,size], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/products?page=${page}&size=${size}$categoryName=${categoryName}`,{
+  const { data: products, isLoading } = useQuery(['products',categoryName,page,size], () => fetch(`http://localhost:5000/products/new?page=${page}&size=${size}&categoryName=${categoryName}`,{
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -20,20 +20,20 @@ const [page ,setPage]= useState(0);
   }).then(res => res.json()))
 
   useEffect(() => {
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/productsCount/${categoryName}`)
+    fetch(`http://localhost:5000/productsCount/${categoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [categoryName])
 
   if (isLoading) {
-    return <div className='md:min-h-[600px]'><p>loading</p></div>
+    return <div className='min-h-[600px]'><p>loading</p></div>
   }
 
   return (
 
     
 
-      <div className='md:min-h-[600px]'>
+      <div className='min-h-[600px]'>
         
         <h1 className='font-bold text-3xl text-center my-10'> This is {categoryName} page</h1>
         <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  sm:gap-3 gap-y-3'>

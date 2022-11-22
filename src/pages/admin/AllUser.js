@@ -6,7 +6,7 @@ const AllUser = () => {
 
 
   const { isLoading, data: users ,refetch} = useQuery('users', () =>
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/user`, {
+    fetch(`http://localhost:5000/user`, {
       method: 'GET',
       headers: {
         'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,10 +15,10 @@ const AllUser = () => {
       .then(res => res.json())
   )
 
-  if (isLoading) return <p>Loading</p>
+  if (isLoading) return <p className='min-h-[600px]'>Loading</p>
 
   return (
-    <div className=''>
+    <div className='min-h-[600px]'>
     
 
       <div className="overflow-x-auto">

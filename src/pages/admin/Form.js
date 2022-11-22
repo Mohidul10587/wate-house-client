@@ -62,7 +62,7 @@ const Form = () => {
             img: imgUrl
           }
 
-          fetch('https://blooming-anchorage-14599.herokuapp.com/product', {
+          fetch('http://localhost:5000/product', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',

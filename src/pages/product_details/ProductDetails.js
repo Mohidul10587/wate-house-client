@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useQuery } from 'react-query'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
+import { UserContext } from '../../App';
 const ProductDetails = () => {
+  const value = useContext(UserContext);
   const [user] = useAuthState(auth)
 
   const query = useParams()
@@ -13,7 +15,7 @@ const ProductDetails = () => {
   const navigate = useNavigate()
 
 
-  const { data: product, isLoading } = useQuery('product', () => fetch(`https://blooming-anchorage-14599.herokuapp.com/product/${productId}`).then(res => res.json()))
+  const { data: product, isLoading } = useQuery('product', () => fetch(`http://localhost:5000/product/${productId}`).then(res => res.json()))
 
 
 
@@ -25,7 +27,7 @@ const ProductDetails = () => {
     }
 
 
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${user.email}`, {
+    fetch(`http://localhost:5000/cart/${user.email}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -46,7 +48,9 @@ const ProductDetails = () => {
         if (inserted.result === 'fail') {
           toast.error('Product is already added')
         }
-        else { toast.success('Added successfully') }
+        else { 
+          value.setCountCartProducts(value.countCartProducts+1)
+          toast.success('Added successfully') }
       })
   }
 
@@ -54,12 +58,12 @@ const ProductDetails = () => {
 
 
   if (isLoading) {
-    return <div className='md:min-h-[600px]'>
+    return <div className='min-h-[600px]'>
       <p>loading</p>
     </div>
   }
   return (
-    <div className='md:min-h-[600px]'>
+    <div className='min-h-[600px]'>
       <h1 className='text-3xl text-center'>Product Details</h1>
       <div className='flex justify-center mt-10'>
 

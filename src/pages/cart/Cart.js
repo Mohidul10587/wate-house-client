@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { UserContext } from '../../App'
+
+
 import auth from '../../firebase.init'
 
 
 const Cart = () => {
-
+  const value2 = useContext(UserContext);
 
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${customersEmail}`, {
+  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`http://localhost:5000/cart/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -45,7 +48,7 @@ const Cart = () => {
 
   const increase = (id, p) => {
 
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${id}`, {
+    fetch(`http://localhost:5000/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -64,6 +67,7 @@ const Cart = () => {
         console.log(data)
         if (data.modifiedCount) {
           refetch()
+          value2.setCountCartProducts(value2.countCartProducts+1)
         }
       })
 
@@ -73,7 +77,10 @@ const Cart = () => {
 
   const decrease = (id, p) => {
 
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${id}`, {
+if(p.quantity > 1){
+
+
+    fetch(`http://localhost:5000/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -92,9 +99,14 @@ const Cart = () => {
         console.log(data)
         if (data.modifiedCount) {
           refetch()
+          value2.setCountCartProducts(value2.countCartProducts-1)
         }
       })
 
+}
+else{
+  alert('If  You want to remove the  product please press delete button')
+}
 
   }
 
@@ -104,7 +116,7 @@ const Cart = () => {
 
   const handleDelete = (id, name) => {
 
-    fetch(`https://blooming-anchorage-14599.herokuapp.com/cart/${id}`, {
+    fetch(`http://localhost:5000/cart/${id}`, {
       method: 'DELETE',
 
     }).then(res => res.json())
@@ -118,15 +130,15 @@ const Cart = () => {
   }
 
   if (isLoading) {
-    return <div className='md:min-h-[600px]'>
+    return <div className='min-h-[600px]'>
       <p>loading</p>
     </div>
   }
-  if (products.length === 0) return <div className='md:min-h-[600px]'> <p>Sorry you don add any product to catt. Please Add To Cart any product.</p></div>
+  if (products.length === 0) return <div className=''> <p>Sorry you don add any product to catt. Please Add To Cart any product.</p></div>
 
   return (
 
-    <div className='md:min-h-[600px]'>
+    <div className='min-h-[600px]'>
       <h1 className='text-center font-bold text-2xl'>This is Cart</h1>
 
       <div className='sm:flex mt-10'>
@@ -169,7 +181,6 @@ const Cart = () => {
           </div>
         </div>
       </div>
-
 
     </div>
 

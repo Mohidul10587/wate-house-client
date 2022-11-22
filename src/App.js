@@ -21,49 +21,63 @@ import AllUser from './pages/admin/AllUser';
 import MyOrders from './pages/admin/MyOrders';
 import RequireAdmin from './pages/authentication/RequireAdmin';
 import Profile from './pages/admin/Profile';
+import { useEffect, useState } from 'react';
+import { createContext } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from './firebase.init';
 
 
 
 
-
+export const UserContext = createContext('mohid')
 
 function App() {
 
+  const [user] = useAuthState(auth)
+  const customersEmail = user?.email;
+  const [countCartProducts, setCountCartProducts] = useState(0)
+
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/cartProductsCount/${customersEmail}`)
+      .then(res => res.json())
+      .then(data => setCountCartProducts(data.totalCartProduct))
+  }, [customersEmail, countCartProducts])
+
+
+
+
   return (
-    <div>
+    <UserContext.Provider value={{ countCartProducts, setCountCartProducts }}>
       <div>
-        <Navbar />
+        <div>
+          <Navbar />
+        </div>
+        <div className='sm:px-2 sm:pt-[100px] pt-[60px]'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='category/:categoryName' element={<Category />} />
+            <Route path='subCategory/:subCategoryName' element={<SubCategory />} />
+            <Route path='productDetails/:productId' element={<ProductDetails />} />
+            <Route path='cart' element={<RequireAuth><Cart /></RequireAuth>} />
+            <Route path='login' element={<Login />} />
+            <Route path='signUp' element={<SignUp />} />
+            <Route path='checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
+            <Route path='payment' element={<RequireAuth><Payment /></RequireAuth>} />
 
-
+            <Route path='dashboard' element={<RequireAuth><Dashboard /> </RequireAuth>}>
+              <Route index='profile' element={<Profile></Profile>}></Route>
+              <Route path='MyOrders' element={<MyOrders></MyOrders>}></Route>
+              <Route path='AllOrders' element={<RequireAdmin><Orders /></RequireAdmin>}></Route>
+              <Route path='form' element={<RequireAdmin><Form /></RequireAdmin>}></Route>
+              <Route path='allUser' element={<RequireAdmin><AllUser /></RequireAdmin>}></Route>
+            </Route>
+          </Routes>
+        </div>
+        <ToastContainer />
+        <Footer />
       </div>
-      <div className='sm:px-2 sm:pt-[100px] pt-[60px]'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='category/:categoryName' element={<Category />} />
-          <Route path='subCategory/:subCategoryName' element={<SubCategory />} />
-          <Route path='productDetails/:productId' element={<ProductDetails />} />
-          <Route path='cart' element={<RequireAuth><Cart /></RequireAuth>} />
-          <Route path='login' element={<Login />} />
-          <Route path='signUp' element={<SignUp />} />
-          <Route path='checkout' element={<RequireAuth><Checkout /></RequireAuth>} />
-          <Route path='payment' element={<RequireAuth><Payment /></RequireAuth>} />
-
-
-
-          <Route path='dashboard' element={<RequireAuth><Dashboard /> </RequireAuth>}>
-            <Route index='profile' element={<Profile></Profile>}></Route>
-            <Route path='MyOrders' element={<MyOrders></MyOrders>}></Route>
-            <Route path='AllOrders' element={<RequireAdmin><Orders /></RequireAdmin>}></Route>
-            <Route path='form' element={<RequireAdmin><Form /></RequireAdmin>}></Route>
-            <Route path='allUser' element={<RequireAdmin><AllUser /></RequireAdmin>}></Route>
-          </Route>
-
-
-        </Routes>
-      </div>
-      <ToastContainer />
-      <Footer />
-    </div>
+    </UserContext.Provider>
   )
 }
 
