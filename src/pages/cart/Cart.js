@@ -159,7 +159,7 @@ else{
               <td className='text-center'>{p.name}</td>
               <td className='text-center'>{p.price}</td>
               <td className='text-center'><button className='sm:px-2 sm:mx-2 mx-1 font-bold border-gray-600 ' onClick={() => decrease(p._id, p)}>-</button><span className=''>{p.quantity}</span> <button className='px-2 mx-2 font-bold  border-gray-600 r' onClick={() => increase(p._id, p)}>+</button></td>
-              <td className='text-center'><button className='bg-red-700 px-2 py-1 text-white rounded-md' onClick={() => handleDelete(p._id, p.name)}>Delete</button></td>
+              <td className='text-center'><button className='bg-red-700 px-2 py-1 text-white rounded-md' onClick={() => handleDelete(p._id, p.name ,p.quantity)}>Delete</button></td>
             </tr>
             )}
           </tbody>
