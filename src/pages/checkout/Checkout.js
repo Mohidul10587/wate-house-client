@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
+import { UserContext } from '../../App';
 import auth from '../../firebase.init';
 
 
 const Checkout = () => {
+  const value = useContext(UserContext);
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
   const { data: products, refetch } = useQuery(['products', customersEmail],() => fetch(`https://cryptic-hollows-87605.herokuapp.com/cart/${customersEmail}`).then(res => res.json()))
@@ -88,8 +90,10 @@ const Checkout = () => {
       .then(data => {
 
         if (data.deletedCount) {
+         
           toast.success(`Cart Items is removed`)
           refetch()
+          value.setCountCartProducts(0)
         }
       })
   }

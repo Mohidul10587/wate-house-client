@@ -1,5 +1,5 @@
 import { signOut } from 'firebase/auth';
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init';
@@ -7,7 +7,7 @@ import CategoryMenu from '../category/CategoryMenu'
 import { AiOutlineShoppingCart,AiOutlineHome ,AiOutlineLogin} from 'react-icons/ai'
 import { FaRegUser } from 'react-icons/fa'
 import { VscSignOut } from 'react-icons/vsc'
-import { createContext, useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from '../../App';
 
 
@@ -16,11 +16,8 @@ import { UserContext } from '../../App';
 const Navbar = () => {
 
   const value = useContext(UserContext);
-
   const [dropdown, setDropdown] = useState(true)
-  const [count, setCount] = useState(0);
   const [user] = useAuthState(auth)
-  const customersEmail = user?.email;
   const navigate = useNavigate()
 
 

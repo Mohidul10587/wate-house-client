@@ -10,7 +10,7 @@ import auth from '../../firebase.init'
 
 
 const Cart = () => {
-  const value2 = useContext(UserContext);
+  const value = useContext(UserContext);
 
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
@@ -67,7 +67,7 @@ const Cart = () => {
         console.log(data)
         if (data.modifiedCount) {
           refetch()
-          value2.setCountCartProducts(value2.countCartProducts+1)
+          value.setCountCartProducts(value.countCartProducts+1)
         }
       })
 
@@ -99,7 +99,7 @@ if(p.quantity > 1){
         console.log(data)
         if (data.modifiedCount) {
           refetch()
-          value2.setCountCartProducts(value2.countCartProducts-1)
+          value.setCountCartProducts(value.countCartProducts-1)
         }
       })
 
@@ -114,7 +114,7 @@ else{
 
   // Delete a cart item
 
-  const handleDelete = (id, name) => {
+  const handleDelete = (id, name,quantity) => {
 
     fetch(`https://cryptic-hollows-87605.herokuapp.com/cart/${id}`, {
       method: 'DELETE',
@@ -123,6 +123,7 @@ else{
       .then(data => {
         console.log(data)
         if (data.deletedCount) {
+          value.setCountCartProducts(value.countCartProducts-quantity)
           toast.success(`${name} is deleted`)
           refetch()
         }
@@ -160,7 +161,6 @@ else{
               <td className='text-center'><button className='sm:px-2 sm:mx-2 mx-1 font-bold border-gray-600 ' onClick={() => decrease(p._id, p)}>-</button><span className=''>{p.quantity}</span> <button className='px-2 mx-2 font-bold  border-gray-600 r' onClick={() => increase(p._id, p)}>+</button></td>
               <td className='text-center'><button className='bg-red-700 px-2 py-1 text-white rounded-md' onClick={() => handleDelete(p._id, p.name)}>Delete</button></td>
             </tr>
-
             )}
           </tbody>
         </table>
