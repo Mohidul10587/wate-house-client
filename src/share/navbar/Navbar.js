@@ -18,6 +18,9 @@ const Navbar = () => {
   const [dropdown, setDropdown] = useState(true)
   const [user] = useAuthState(auth)
   const navigate = useNavigate()
+  const [first, setFirst] = useState(true)
+  const [second, setSecond] = useState(true)
+  const [third, setThird] = useState(true)
 
 
 
@@ -55,102 +58,74 @@ const Navbar = () => {
 
 
 
-        {/* category and subcategories for desktop*/}
+        {/* category and subcategories for mobile */}
 
-        <li className='group text-white list-none md:hidden'>Category
-         <div className='hidden group-hover:block group fixed bg-pink-500 top-14 left-16 text-center w-44 px-2'>
-       
-            <ul>
+        <li className='group text-white list-none md:hidden'><span className='font-bold'>Category</span>
+          <div  className='hidden group-hover:block group fixed bg-pink-500 top-14 left-0 text-center w-full   px-2'>
 
-              <li className='group'>Fanions 1
+            <div >
+            <ul className='flex justify-between w-full'>
+              <li onClick={() => {
+                setFirst(!first)
+                setSecond(true)
+                setThird(true)
+              }}>For Women
 
-                <ul className='hidden '>
+                <ul className={first ? 'hidden' : 'block'}>
 
-                  <li className=''>Fanions</li>
-                  <li className=''>Fanions</li>
-
-                  <li className=''>Fanions</li>
-
-                </ul>
-
-              </li>
-              <li>Fanions 2
-
-
-                <ul className='hidden '>
-
-                  <li className=''>Fanions</li>
-                  <li className=''>Fanions</li>
-
-                  <li className=''>Fanions</li>
-
-                </ul>
-              </li>
-
-              <li>Fanions 3
-
-
-                <ul className='hidden '>
-
-                  <li className=''>Fanions</li>
-                  <li className=''>Fanions</li>
-
-                  <li className=''>Fanions</li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Clothing'>Clothing</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Winter Special'>Winter Special</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Muslim Were'>Muslim Were</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Shoes'>Shoes</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Watches'>Watches</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Jewellers'>Jewellers</Link></li>
 
                 </ul>
 
               </li>
+              <li onClick={() => {
+                setSecond(!second)
+                setFirst(true)
+                setThird(true)
+              }}>Heaths
+
+
+                <ul className={second ? 'hidden' : 'block'}>
+
+                  <li className='py-1 text-center'> <Link to='/subCategory/Bath and Body'>Bath and Body</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Beauty Tools'>Beauty Tools</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Fragrance'>Fragrance</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Hair Care'>Hair Care</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Makeup'>Makeup</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Mens Care'>Men's Care</Link></li>
+
+                </ul>
+              </li>
+
+              <li onClick={() => {
+                setThird(!third)
+                setFirst(true)
+                setSecond(true)
+              }}>Watches
+
+                <ul className={third ? 'hidden' : 'block'}>
+
+                  <li className='py-1 text-center'> <Link to='/subCategory/Kids'>Kids</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Laptop'>Laptop</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Luggage'>Luggage</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Travel Bags'>Travel Bags</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Mens Bags'>Mens Bags</Link></li>
+                  <li className='py-1 text-center'> <Link to='/subCategory/Womens Bags'>Womens Bags</Link></li>
+
+                </ul>
+
+              </li>
 
             </ul>
+            </div>
           </div>
-        
+
         </li>
-
-
-
-        {/* <ul className='flex md:hidden justify-center  w-full z-30'>
-        <li className='py-1 text-center group text-white mx-5 relative'> <Link to='/category/Women Fashion'>Women's Fashion</Link>
-
-          <div className='-left-11 top-[32px] absolute bg-white pt-[2px]'>
-            <ul className='hidden group-hover:block bg-pink-600 text-white  pt-4 px-2  pb-2 rounded rounded-b-md w-44 '>
-              <li className='py-1 text-center'> <Link to='/subCategory/Clothing'>Clothing</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Winter Special'>Winter Special</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Muslim Were'>Muslim Were</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Shoes'>Shoes</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Watches'>Watches</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Jewellers'>Jewellers</Link></li>
-
-            </ul>
-          </div>
-        </li>
-        <li className='py-1 text-center group text-white mx-5 relative'><Link to='/category/Healths and Beauty'>Heath and Beauty</Link>
-          <div className='-left-11 top-[32px] absolute bg-white pt-[2px]'>
-            <ul className='hidden group-hover:block bg-pink-600 text-white  pt-4 px-2  pb-2 rounded rounded-b-md w-44 '>
-              <li className='py-1 text-center'> <Link to='/subCategory/Bath and Body'>Bath and Body</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Beauty Tools'>Beauty Tools</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Fragrance'>Fragrance</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Hair Care'>Hair Care</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Makeup'>Makeup</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Mens Care'>Men's Care</Link></li>
-
-            </ul>
-          </div>
-        </li>
-        <li className='py-1 text-center group text-white mx-5 relative'><Link to='/category/Watches'>Watches and Bags</Link>
-          <div className='-left-11 top-[32px] absolute bg-white pt-[2px]'>
-            <ul className='hidden group-hover:block bg-pink-600 text-white  pt-4 px-2  pb-2 rounded rounded-b-md w-44 '>
-              <li className='py-1 text-center'> <Link to='/subCategory/Kids'>Kids</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Laptop'>Laptop</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Luggage'>Luggage</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Travel Bags'>Travel Bags</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Mens Bags'>Mens Bags</Link></li>
-              <li className='py-1 text-center'> <Link to='/subCategory/Womens Bags'>Womens Bags</Link></li>
-
-            </ul>
-          </div>
-        </li>
-      </ul> */}
-
 
 
 

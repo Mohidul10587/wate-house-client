@@ -32,7 +32,7 @@ const SubCategory = () => {
 
   return (
     <div className='min-h-[600px]'>
-      <h1 className='font-bold text-3xl text-center my-10'> This is {subCategoryName} page</h1>    
+      <h1 className='font-bold text-3xl text-center my-10'>{subCategoryName}</h1>    
     <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 place-items-center  gap-3 px-4'>
   
     {

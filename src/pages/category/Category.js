@@ -35,8 +35,8 @@ const [page ,setPage]= useState(0);
 
       <div className='min-h-[600px]'>
         
-        <h1 className='font-bold text-3xl text-center my-10'> This is {categoryName} page</h1>
-        <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  sm:gap-3 gap-y-3'>
+        <h1 className='font-bold text-3xl text-center my-10'> {categoryName}</h1>
+        <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  sm:gap-3 gap-y-3 px-4'>
 
         {
           products.map(product => <ProductCard key={product._id} product={product}/>)
