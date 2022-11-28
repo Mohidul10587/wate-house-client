@@ -61,15 +61,15 @@ const Navbar = () => {
         {/* category and subcategories for mobile */}
 
         <li className='group text-white list-none md:hidden'><span className='font-bold'>Category</span>
-          <div  className='hidden group-hover:block group fixed  top-14 left-0 text-center w-full   '>
+          <div  className='hidden group-hover:block group fixed  top-14 pt-2 left-0 text-center w-full  bg-pink-500  '>
 
             <div >
-            <ul className='flex justify-between w-full bg-pink-500 px-4'>
+            <ul className='flex justify-between w-full px-4'>
               <li onClick={() => {
                 setFirst(!first)
                 setSecond(true)
                 setThird(true)
-              }}><span className='font-bold'>For Women</span>
+              }}><span className='font-bold border-b-[2px] border-white pb-1'>For Women</span>
 
                 <ul className={first ? 'hidden' : 'block'}>
 
@@ -87,7 +87,7 @@ const Navbar = () => {
                 setSecond(!second)
                 setFirst(true)
                 setThird(true)
-              }}><span className='font-bold'>Heaths</span>
+              }}><span className='font-bold border-b-[2px] border-white pb-1'>Heaths</span>
 
 
                 <ul className={second ? 'hidden' : 'block'}>
@@ -106,7 +106,7 @@ const Navbar = () => {
                 setThird(!third)
                 setFirst(true)
                 setSecond(true)
-              }}><span className='font-bold'>Watches</span>
+              }}><span className='font-bold border-b-[2px] border-white pb-1'>Watches</span>
 
                 <ul className={third ? 'hidden' : 'block'}>
 
@@ -144,9 +144,6 @@ const Navbar = () => {
           }}><VscSignOut /><span className='ml-4'>Logout</span></button> : <Link to="/login"><button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' ><AiOutlineLogin /> <span className='ml-4'>Login</span></button></Link>}
 
         </div>
-
-
-
 
 
       </div>

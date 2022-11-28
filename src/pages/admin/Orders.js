@@ -52,8 +52,12 @@ const Orders = () => {
           <div className='w-1/2 relative'>
             <p className='font-bold'>Ordered Items</p>
             <div>
-              {px.orderedProduct?.map(p => <div key={p._id}>
+              {px.orderedProduct?.map(p => <div className='flex' key={p._id}>
+                <img src={p.img} className='w-4' alt="" />
                 <p >{p.name}</p>
+                <p >{p.quantity}</p>
+
+
               </div>)}
             </div>
 
