@@ -61,7 +61,7 @@ const Navbar = () => {
         {/* category and subcategories for mobile */}
 
         <li className='group text-white list-none md:hidden'><span className='font-bold'>Category</span>
-          <div  className='hidden group-hover:block group fixed  top-14 left-0 text-center w-full   px-2'>
+          <div  className='hidden group-hover:block group fixed  top-14 left-0 text-center w-full   '>
 
             <div >
             <ul className='flex justify-between w-full bg-pink-500 px-4'>
