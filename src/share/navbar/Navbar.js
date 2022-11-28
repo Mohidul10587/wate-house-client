@@ -134,11 +134,14 @@ const Navbar = () => {
 
         <div className={dropdown ? 'bg-pink-600  md:hidden fixed sm:top-24 top-14 w-64  text-white z-30 -right-64 transition-all duration-700' : ' bg-pink-600 md:hidden fixed sm:top-24 top-14 w-64 right-0 text-white z-30 transition-all duration-700'} >
 
-          {user && <Link to='dashboard'>  <p className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><FaRegUser /> <span className='ml-4'>Dashboard</span> </p></Link>}
-          <Link to='/'><p className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineHome /> <span className='ml-4'>Home </span></p></Link>
-          <Link to='/cart'><p className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineShoppingCart /> <span className='ml-4'>Cart<sup>{value.countCartProducts}</sup></span></p></Link>
+          {user && <Link to='dashboard'>  <p  onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><FaRegUser /> <span className='ml-4'>Dashboard</span> </p></Link>}
+          <Link to='/'><p onClick={() => setDropdown(true)}className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineHome /> <span className='ml-4'>Home </span></p></Link>
+          <Link to='/cart'><p onClick={() => setDropdown(true)}className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineShoppingCart /> <span className='ml-4'>Cart<sup>{value.countCartProducts}</sup></span></p></Link>
 
-          {user ? <button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' onClick={signedOut}><VscSignOut /><span className='ml-4'>Logout</span></button> : <Link to="/login"><button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' ><AiOutlineLogin /> <span className='ml-4'>Login</span></button></Link>}
+          {user ? <button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' onClick={()=>{
+            signedOut()
+            setDropdown(true)
+          }}><VscSignOut /><span className='ml-4'>Logout</span></button> : <Link to="/login"><button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' ><AiOutlineLogin /> <span className='ml-4'>Login</span></button></Link>}
 
         </div>
 
