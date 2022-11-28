@@ -26,7 +26,7 @@ const [page ,setPage]= useState(0);
   }, [categoryName])
 
   if (isLoading) {
-    return <div className='min-h-[600px]'><p>loading</p></div>
+    return <div className='min-h-[600px] flex justify-center font-bold text-2xl'> <p>Loading...</p></div>
   }
 
   return (

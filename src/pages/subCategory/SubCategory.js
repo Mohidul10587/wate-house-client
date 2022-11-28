@@ -27,14 +27,14 @@ const SubCategory = () => {
 
 
   if (isLoading) {
-    return <div className='min-h-[600px]'> <p>loading</p></div>
+    return <div className='min-h-[600px] flex justify-center font-bold text-2xl'> <p>Loading...</p></div>
   }
 
   return (
     <div className='min-h-[600px]'>
-        
-    <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  gap-3'>
-
+      <h1 className='font-bold text-3xl text-center my-10'> This is {subCategoryName} page</h1>    
+    <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-2 place-items-center  gap-3 px-4'>
+  
     {
       products.map(product => <ProductCard key={product._id} product={product}/>)
     }
