@@ -61,15 +61,15 @@ const Navbar = () => {
         {/* category and subcategories for mobile */}
 
         <li className='group text-white list-none md:hidden'><span className='font-bold'>Category</span>
-          <div  className='hidden group-hover:block group fixed bg-pink-500 top-14 left-0 text-center w-full   px-2'>
+          <div  className='hidden group-hover:block group fixed  top-14 left-0 text-center w-full   px-2'>
 
             <div >
-            <ul className='flex justify-between w-full'>
+            <ul className='flex justify-between w-full bg-pink-500 px-4'>
               <li onClick={() => {
                 setFirst(!first)
                 setSecond(true)
                 setThird(true)
-              }}>For Women
+              }}><span className='font-bold'>For Women</span>
 
                 <ul className={first ? 'hidden' : 'block'}>
 
@@ -87,7 +87,7 @@ const Navbar = () => {
                 setSecond(!second)
                 setFirst(true)
                 setThird(true)
-              }}>Heaths
+              }}><span className='font-bold'>Heaths</span>
 
 
                 <ul className={second ? 'hidden' : 'block'}>
@@ -106,7 +106,7 @@ const Navbar = () => {
                 setThird(!third)
                 setFirst(true)
                 setSecond(true)
-              }}>Watches
+              }}><span className='font-bold'>Watches</span>
 
                 <ul className={third ? 'hidden' : 'block'}>
 
