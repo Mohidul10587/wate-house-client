@@ -19,13 +19,7 @@ const Home = () => {
     <div className='min-h-[600px]'>
 
 
-
-      <div>
-        <img src="b.jpeg" className='w-full max-h-[600px]' alt="" />
-      </div>
-
-
-
+      <img src="b.jpeg" className='w-full max-h-[600px]' alt="" />
 
       <h1 className='font-bold text-3xl text-center mt-10'>Brows by category</h1>
 

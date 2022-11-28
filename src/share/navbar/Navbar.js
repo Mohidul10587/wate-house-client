@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init';
-import CategoryMenu from '../category/CategoryMenu'
 import { AiOutlineShoppingCart, AiOutlineHome, AiOutlineLogin } from 'react-icons/ai'
 import { FaRegUser } from 'react-icons/fa'
 import { VscSignOut } from 'react-icons/vsc'
