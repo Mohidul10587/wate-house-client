@@ -155,7 +155,7 @@ const Navbar = () => {
 
 
 
-        {/* side for mobile  device */}
+        {/* sidebar for mobile  device */}
         <svg className="md:hidden hover:border-white border-gray-800 mr-4" onClick={() => setDropdown(!dropdown)} width='20px' fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" /></svg>
 
         <div className={dropdown ? 'bg-pink-600  md:hidden fixed sm:top-24 top-14 w-64  text-white z-30 -right-64 transition-all duration-700' : ' bg-pink-600 md:hidden fixed sm:top-24 top-14 w-64 right-0 text-white z-30 transition-all duration-700'} >
@@ -164,7 +164,7 @@ const Navbar = () => {
           <Link to='/'><p className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineHome /> <span className='ml-4'>Home </span></p></Link>
           <Link to='/cart'><p className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineShoppingCart /> <span className='ml-4'>Cart<sup>{value.countCartProducts}</sup></span></p></Link>
 
-          {user ? <button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' onClick={signedOut}><VscSignOut /><span className='ml-4'>Logout</span></button> : <Link to="/login"><button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' ><AiOutlineLogin /> Login</button></Link>}
+          {user ? <button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' onClick={signedOut}><VscSignOut /><span className='ml-4'>Logout</span></button> : <Link to="/login"><button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' ><AiOutlineLogin /> <span className='ml-4'>Login</span></button></Link>}
 
         </div>
 
