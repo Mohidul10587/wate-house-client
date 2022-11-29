@@ -8,6 +8,7 @@ import { FaRegUser } from 'react-icons/fa'
 import { VscSignOut } from 'react-icons/vsc'
 import { useContext } from "react";
 import { UserContext } from '../../App';
+import { GoThreeBars } from 'react-icons/go';
 
 
 
@@ -22,7 +23,12 @@ const Navbar = () => {
   const [second, setSecond] = useState(true)
   const [third, setThird] = useState(true)
 
-
+  window.onclick = function(event) {
+    if (!event.target.matches('.sharebtn')) {
+      setDropdown(true)
+        
+    }   
+}
 
   const signedOut = () => {
     signOut(auth);
@@ -130,7 +136,8 @@ const Navbar = () => {
 
 
         {/* sidebar for mobile  device */}
-        <svg className="md:hidden hover:border-white border-gray-800 mr-4" onClick={() => setDropdown(!dropdown)} width='20px' fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" /></svg>
+        <svg className="md:hidden sharebtn hover:border-white border-gray-800 mr-4 p-2" onClick={() => setDropdown(!dropdown)} width='32px' fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z" /></svg>
+        {/* <p className="md:hidden sharebtn hover:border-white  mr-4 p-4 bg-green-700 text-white" onClick={() => setDropdown(!dropdown)}><GoThreeBars /></p> */}
 
         <div className={dropdown ? 'bg-pink-600  md:hidden fixed sm:top-24 top-14 w-64  text-white z-30 -right-64 transition-all duration-700' : ' bg-pink-600 md:hidden fixed sm:top-24 top-14 w-64 right-0 text-white z-30 transition-all duration-700'} >
 
