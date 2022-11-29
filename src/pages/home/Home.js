@@ -25,10 +25,10 @@ const Home = () => {
 
 
 
-      {categories?.map(category => <div className='mt-10'>
+      {categories?.map((category,index) => <div className='mt-10' key={index}>
         <h2 className='font-bold text-xl mb-4 sm:text-left text-center px-4'>{category.categoryName}</h2>
         <div className='grid sm:grid-cols-6 grid-cols-2 place-items-center gap-3 px-3'>
-          {category.categories.map(ctg => <div key={ctg.categoryName} className=' w-full sm:h-64 h-44 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
+          {category.categories.map((ctg, index) => <div key={index} className=' w-full sm:h-64 h-44 border-[1px] border-pink-900 rounded-lg overflow-hidden '>
             <Link to={`/subCategory/${ctg.name}`} className=''>
               <img className='w-full sm:h-44 h-32 border-b-[1px] border-pink-900' src={ctg.categoryImg} alt="" />
               <div className='flex justify-center sm:h-20 h-10 items-center text-pink-700'>

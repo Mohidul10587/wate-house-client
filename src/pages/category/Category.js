@@ -5,19 +5,22 @@ import ProductCard from '../../components/ProductCard'
 
 
 const Category = () => {
-const [count ,setCount]= useState(0);
-const [size] = useState(10)
-const [page ,setPage]= useState(0);
-
+  const [count, setCount] = useState(0);
+  const [size] = useState(10)
+  const [page, setPage] = useState(0);
+  console.log(page)
   const query = useParams()
   const categoryName = query.categoryName;
-
-  const { data: products, isLoading } = useQuery(['products',categoryName,page,size], () => fetch(`https://cryptic-hollows-87605.herokuapp.com/products/new?page=${page}&size=${size}&categoryName=${categoryName}`,{
+  useEffect(() => {
+    setPage(0)
+  }, [categoryName])
+  const { data: products, isLoading } = useQuery(['products', categoryName, page, size], () => fetch(`https://cryptic-hollows-87605.herokuapp.com/products/new?page=${page}&size=${size}&categoryName=${categoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
     }
   }).then(res => res.json()))
+
 
   useEffect(() => {
     fetch(`https://cryptic-hollows-87605.herokuapp.com/productsCount/${categoryName}`)
@@ -31,15 +34,15 @@ const [page ,setPage]= useState(0);
 
   return (
 
-    
 
-      <div className='min-h-[600px]'>
-        
-        <h1 className='font-bold text-3xl text-center my-10'> {categoryName}</h1>
-        <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  sm:gap-3 gap-y-3 px-4'>
+
+    <div className='min-h-[600px]'>
+
+      <h1 className='font-bold text-3xl text-center my-10'> {categoryName}</h1>
+      <div className='grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 place-items-center  sm:gap-3 gap-y-3 px-4'>
 
         {
-          products.map(product => <ProductCard key={product._id} product={product}/>)
+          products.map(product => <ProductCard key={product._id} product={product} />)
         }
 
       </div>
@@ -48,7 +51,7 @@ const [page ,setPage]= useState(0);
       <div className='flex justify-center'>
         <div className='mt-10'>
           {
-            [...Array(Math.ceil(count / size)).keys()]?.map(number => <button key={number} className={page === number ? 'bg-pink-700 px-1 m-1  text-white border-[1px] border-pink-700 text-xs font-bold' : 'bg-white px-1 m-1  border-[1px] border-pink-700 text-xs font-bold'} onClick={() => setPage(number)}>{number}</button>)
+            [...Array(Math.ceil(count / size)).keys()]?.map(number => <button key={number} className={page === number ? 'bg-pink-700 px-1 m-1  text-white border-[1px] border-pink-700 text-xs font-bold' : 'bg-white px-1 m-1  border-[1px] border-pink-700 text-xs font-bold'} onClick={() => setPage(number)}>{number + 1}</button>)
           }
         </div>
       </div>
