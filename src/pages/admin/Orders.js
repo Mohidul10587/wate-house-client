@@ -38,9 +38,9 @@ const Orders = () => {
     <div className='min-h-[600px]'>
 
 
-      <div className=''>
-        {orderedVouchers?.map(px => <div key={px._id} className='mb-10 flex justify-between border-2 border-pink-700 p-4'>
-          <div className='w-1/2'>
+      <div className='px-4'>
+        {orderedVouchers?.map(px => <div key={px._id} className='mb-10 sm:flex justify-between border-2 border-pink-700 p-4 relative'>
+          <div className='sm:w-1/2'>
             <p className=''><span className='font-bold mr-2'>Customer's Name:</span>{px.name}</p>
             <p className=''><span className='font-bold mr-2'>Send Money from:</span>{px.bkashNumber}</p>
             <p className=''><span className='font-bold mr-2'>TrxID:</span>{px.trxID}</p>
@@ -49,20 +49,23 @@ const Orders = () => {
             <p className=''><span className='font-bold mr-2'>Address:</span>{px.address} , {px.city}</p>
 
           </div>
-          <div className='w-1/2 relative'>
-            <p className='font-bold'>Ordered Items</p>
-            <div>
-              {px.orderedProduct?.map(p => <div className='flex' key={p._id}>
+          <div className='sm:w-1/2 relative mb-5'>
+            <p className='font-bold'>Order Summary</p>
+            
+              {px.orderedProduct?.map(p => <div className='flex justify-between' key={p._id}>
                 <img src={p.img} className='w-4' alt="" />
-                <p >{p.name}</p>
-                <p >{p.quantity}</p>
+                <p>{p.name}</p>
+                <p>{p.quantity}pcs x ${p.price}</p>
+           
+                <p>=${p.quantity * p.price}</p>
 
 
               </div>)}
-            </div>
+           
 
-            <button className='absolute bottom-0 right-0 bg-red-700 px-3 py-1 rounded-md text-white font-bold' onClick={() => deleteVoucher(px._id)}>Delete</button>
+            <button className='hidden sm:block absolute bottom-0 right-0 bg-red-700 px-3 py-1 rounded-md text-white font-bold' onClick={() => deleteVoucher(px._id)}>Delete</button>
           </div>
+          <button className='sm:hidden block absolute bottom-0  bg-red-700 px-3 py-1 rounded-md text-white font-bold' onClick={() => deleteVoucher(px._id)}>Delete</button>
 
         </div>)}
 

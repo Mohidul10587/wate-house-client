@@ -135,7 +135,7 @@ else{
       <p>loading</p>
     </div>
   }
-  if (products.length === 0) return <div className=''> <p>Sorry you don add any product to catt. Please Add To Cart any product.</p></div>
+  if (products.length === 0) return <div className='min-h-[600px] text-center font-bold mt-10 text-2xl'> <p>Sorry you do not add any product to cart. Please add  products to cart first.</p></div>
 
   return (
 
