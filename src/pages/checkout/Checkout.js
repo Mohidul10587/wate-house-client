@@ -66,7 +66,10 @@ const Checkout = () => {
       onlyProductsPriceTotal: totalPrice,
       shippingCharge:shippingCharge,
       totalRequiredPrice: subTotal,
-      orderedProduct: products
+      orderedProduct: products,
+      year: new Date().getFullYear(),
+      month: new Date().getMonth(),
+      date: new Date().getDate(),
 
     }
 
@@ -85,6 +88,19 @@ const Checkout = () => {
       })
 
 
+      fetch('https://cryptic-hollows-87605.herokuapp.com/orderedVoucherForAdmin', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify(order)
+      })
+        .then(res => res.json())
+        .then(inserted => {
+          console.log(inserted)
+          toast.success('Address ')
+          reset()
+        })
     fetch(`https://cryptic-hollows-87605.herokuapp.com/cart2/${customersEmail}`, {
       method: 'DELETE',
     })
