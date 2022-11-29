@@ -11,7 +11,7 @@ const Checkout = () => {
   const value = useContext(UserContext);
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, refetch } = useQuery(['products', customersEmail],() => fetch(`https://cryptic-hollows-87605.herokuapp.com/cart/${customersEmail}`).then(res => res.json()))
+  const { data: products, refetch } = useQuery(['products', customersEmail], () => fetch(`https://cryptic-hollows-87605.herokuapp.com/cart/${customersEmail}`).then(res => res.json()))
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -32,38 +32,40 @@ const Checkout = () => {
 
 
 
-    const getTotalPrice2 =  () => {
+    const getTotalPrice = () => {
       let total = 0;
       for (let i = 0; i < products?.length; i++) {
-        total = total + parseInt(products[i].price)*parseInt(products[i].quantity)
+        total = total + parseInt(products[i].price) * parseInt(products[i].quantity)
 
       }
       return total;
     }
-    const totalPrice2 = getTotalPrice2()
-  
-  
+    const totalPrice = getTotalPrice()
+
+
     // // Shipping charge calculation
-    const shippingCharge2 = Math.round(totalPrice2 * 0.05)
-  
+    const shippingCharge = Math.round(totalPrice * 0.05)
+
     // // Sub total calculation
-  
-    const subTotal2 = shippingCharge2 + totalPrice2;
-  
-    console.log(subTotal2)
-  
-  
+
+    const subTotal = shippingCharge + totalPrice;
+
+    console.log(subTotal)
+
+
     const order = {
       name: data.name,
       phone: data.phone,
-      customersEmail:customersEmail,
+      customersEmail: customersEmail,
       address: data.address,
       city: data.city,
       zip_code: data.zip_code,
       bkashNumber: data.bkashNumber,
       amount: data.amount,
       trxID: data.trxID,
-      requiredPrice: subTotal2,
+      onlyProductsPriceTotal: totalPrice,
+      shippingCharge:shippingCharge,
+      totalRequiredPrice: subTotal,
       orderedProduct: products
 
     }
@@ -90,7 +92,7 @@ const Checkout = () => {
       .then(data => {
 
         if (data.deletedCount) {
-         
+
           toast.success(`Cart Items is removed`)
           refetch()
           value.setCountCartProducts(0)
