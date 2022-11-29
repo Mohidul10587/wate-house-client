@@ -34,8 +34,6 @@ const MyOrders = () => {
           
               <div className=' border-b-[1px] border-black '>
               <p className='font-bold'>Date :{px.date}/{px.month}/{px.year}</p>
-
-                <p className='font-bold'>Order Summary</p>
                 <div className='flex justify-between border-b-[1px] border-black mb-1'>
                   <p className='text-center w-20 font-bold'>Img</p>
                   <p className='text-center w-20 font-bold'>Name</p>

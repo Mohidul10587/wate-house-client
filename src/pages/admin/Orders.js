@@ -37,9 +37,10 @@ const Orders = () => {
   return (
     <div className='min-h-[600px]'>
       <div className='px-4'>
-        {orderedVouchers?.map(px => <div key={px._id} className='mb-10 p-4  border-2 rounded-md border-pink-700  relative'>
+        {orderedVouchers?.map(px => <div key={px._id} className='mb-10 p-4 pb-2  border-2 rounded-md border-pink-500'>
+        <p className='font-bold'>Date :{px.date}/{px.month}/{px.year}</p>
           <div className='sm:flex justify-between'>
-            <div className='sm:w-1/2'>
+            <div className='sm:w-5/12'>
               <p className=''><span className='font-bold mr-2'>Customer's Name:</span>{px.name}</p>
               <p className=''><span className='font-bold mr-2'>Send Money from:</span>{px.bkashNumber}</p>
               <p className=''><span className='font-bold mr-2'>TrxID:</span>{px.trxID}</p>
@@ -48,7 +49,7 @@ const Orders = () => {
               <p className=''><span className='font-bold mr-2'>Address:</span>{px.address} , {px.city}</p>
 
             </div>
-            <div className='sm:w-1/2 relative '>
+            <div className='sm:w-7/12 sm:border-l-[1px] sm:pl-8  border-pink-500'>
               <div className=' border-b-[1px] border-black '>
                 <p className='font-bold'>Order Summary</p>
                 <div className='flex justify-between border-b-[1px] border-black mb-1'>
@@ -86,7 +87,7 @@ const Orders = () => {
               </div>
             </div>
           </div>
-          <div className='   w-full flex justify-end'>
+          <div className='   w-full flex justify-end mt-3'>
             <button className='   bg-red-700 px-3 py-1 rounded-md text-white font-bold' onClick={() => deleteVoucher(px._id)}>Delete</button>
 
           </div>
