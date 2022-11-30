@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init';
-import { AiOutlineShoppingCart, AiOutlineHome, AiOutlineLogin } from 'react-icons/ai'
+import { AiOutlineShoppingCart, AiOutlineHome, AiOutlineLogin, AiOutlineSearch } from 'react-icons/ai'
 import { FaRegUser } from 'react-icons/fa'
 import { VscSignOut } from 'react-icons/vsc'
 import { useContext } from "react";
@@ -54,6 +54,7 @@ const Navbar = () => {
           {user && <Link className='' to='dashboard'><p className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white'><FaRegUser /></p></Link>}
 
           <Link to='/'> <p className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white'><AiOutlineHome /></p></Link>
+          <Link to='/search'> <p className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white'><AiOutlineSearch /></p></Link>
 
           <Link to='/cart'> <div className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white flex'><AiOutlineShoppingCart /> <p className='font-normal text-sm'><sup>{value.countCartProducts}</sup></p> </div> </Link>
 

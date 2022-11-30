@@ -25,6 +25,7 @@ import { useEffect, useState } from 'react';
 import { createContext } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebase.init';
+import Search from './pages/search/Search';
 
 
 
@@ -57,6 +58,8 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='category/:categoryName' element={<Category />} />
+            <Route path='search' element={<Search />} />
+
             <Route path='subCategory/:subCategoryName' element={<SubCategory />} />
             <Route path='productDetails/:productId' element={<ProductDetails />} />
             <Route path='cart' element={<RequireAuth><Cart /></RequireAuth>} />
