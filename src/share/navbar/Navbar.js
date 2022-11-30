@@ -4,7 +4,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init';
 import { AiOutlineShoppingCart, AiOutlineHome, AiOutlineLogin, AiOutlineSearch } from 'react-icons/ai'
-import { FaRegUser } from 'react-icons/fa'
+import { FaRegUser, FaSearch } from 'react-icons/fa'
 import { VscSignOut } from 'react-icons/vsc'
 import { useContext } from "react";
 import { UserContext } from '../../App';
@@ -144,6 +144,7 @@ const Navbar = () => {
           {user && <Link to='dashboard'>  <p  onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><FaRegUser /> <span className='ml-4'>Dashboard</span> </p></Link>}
           <Link to='/'><p onClick={() => setDropdown(true)}className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineHome /> <span className='ml-4'>Home </span></p></Link>
           <Link to='/cart'><p onClick={() => setDropdown(true)}className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><AiOutlineShoppingCart /> <span className='ml-4'>Cart<sup>{value.countCartProducts}</sup></span></p></Link>
+          <Link to='/search'><p onClick={() => setDropdown(true)}className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center"><FaSearch /> <span className='ml-4'>Search</span></p></Link>
 
           {user ? <button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' onClick={()=>{
             signedOut()

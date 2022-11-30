@@ -39,7 +39,7 @@ const Search = () => {
 
             <div className='flex justify-center my-10'>
                 <div className='border-2 border-gray-500 flex justify-center w-[292px] rounded-md h-10 items-center'>
-                <input className='pl-2 h-10 border-2 border-gray-500' type="text" onChange={(e) => setSearchName(e.target.value)} /><p className='mx-2'><FaSearch className=' ' /></p>
+                    <input className='pl-2 h-10 border-2 border-gray-500' type="text" onChange={(e) => setSearchName(e.target.value)} /><p className='mx-2'><FaSearch className=' ' /></p>
                 </div>
 
             </div>
