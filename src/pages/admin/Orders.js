@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 const Orders = () => {
 
 
-  const { data: orderedVouchers, isLoading, refetch } = useQuery('orderedVouchers', () => fetch('https://cryptic-hollows-87605.herokuapp.com/orderedVoucherForAdmin', {
+  const { data: orderedVouchers, isLoading, refetch } = useQuery('orderedVouchers', () => fetch('  https://cryptic-hollows-87605.herokuapp.com/orderedVoucherForAdmin', {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,7 @@ const Orders = () => {
 
   const deleteVoucher = id => {
 
-    fetch(`https://cryptic-hollows-87605.herokuapp.com/orderedVoucherForAdmin/${id}`, {
+    fetch(`  https://cryptic-hollows-87605.herokuapp.com/orderedVoucherForAdmin/${id}`, {
       method: 'DELETE',
     }).then(res => res.json())
       .then(data => {

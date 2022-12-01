@@ -40,7 +40,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`https://cryptic-hollows-87605.herokuapp.com/cartProductsCount/${customersEmail}`)
+    fetch(`  https://cryptic-hollows-87605.herokuapp.com/cartProductsCount/${customersEmail}`)
       .then(res => res.json())
       .then(data => setCountCartProducts(parseInt(data.count)))
   }, [customersEmail, countCartProducts])

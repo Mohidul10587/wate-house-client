@@ -9,7 +9,7 @@ const Search = () => {
     const [searchedProducts, setSearchedProducts] = useState([]);
 
 
-    // const { data: products, isLoading, refetch } = useQuery(['products',searchName], () => fetch(`https://cryptic-hollows-87605.herokuapp.com/productsName/${searchName}`, {
+    // const { data: products, isLoading, refetch } = useQuery(['products',searchName], () => fetch(`  https://cryptic-hollows-87605.herokuapp.com/productsName/${searchName}`, {
     //     method: 'GET',
     //     headers: {
     //         'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -21,7 +21,7 @@ const Search = () => {
 
 
     useEffect(() => {
-        fetch(`https://cryptic-hollows-87605.herokuapp.com/productsName/${searchName}`)
+        fetch(`  https://cryptic-hollows-87605.herokuapp.com/productsName/${searchName}`)
             .then(res => res.json())
             .then(data => setSearchedProducts(data))
     }, [searchName])

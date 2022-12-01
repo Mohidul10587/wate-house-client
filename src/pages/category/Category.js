@@ -14,7 +14,7 @@ const Category = () => {
   useEffect(() => {
     setPage(0)
   }, [categoryName])
-  const { data: products, isLoading } = useQuery(['products', categoryName, page, size], () => fetch(`https://cryptic-hollows-87605.herokuapp.com/products/new?page=${page}&size=${size}&categoryName=${categoryName}`, {
+  const { data: products, isLoading } = useQuery(['products', categoryName, page, size], () => fetch(`  https://cryptic-hollows-87605.herokuapp.com/products/new?page=${page}&size=${size}&categoryName=${categoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -23,7 +23,7 @@ const Category = () => {
 
 
   useEffect(() => {
-    fetch(`https://cryptic-hollows-87605.herokuapp.com/productsCount/${categoryName}`)
+    fetch(`  https://cryptic-hollows-87605.herokuapp.com/productsCount/${categoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [categoryName])
