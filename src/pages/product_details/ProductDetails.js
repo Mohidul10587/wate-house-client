@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const navigate = useNavigate()
 
 
-  const { data: product, isLoading } = useQuery('product', () => fetch(`  https://cryptic-hollows-87605.herokuapp.com/product/${productId}`).then(res => res.json()))
+  const { data: product, isLoading } = useQuery('product', () => fetch(`  http://localhost:5000/product/${productId}`).then(res => res.json()))
 
 
 
@@ -27,7 +27,7 @@ const ProductDetails = () => {
     }
 
 
-    fetch(`  https://cryptic-hollows-87605.herokuapp.com/cart/${user.email}`, {
+    fetch(`  http://localhost:5000/cart/${user.email}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

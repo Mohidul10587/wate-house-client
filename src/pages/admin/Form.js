@@ -58,7 +58,7 @@ const Form = () => {
             img: imgUrl
           }
 
-          fetch('  https://cryptic-hollows-87605.herokuapp.com/product', {
+          fetch('  http://localhost:5000/product', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',

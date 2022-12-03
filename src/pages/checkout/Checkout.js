@@ -11,7 +11,7 @@ const Checkout = () => {
   const value = useContext(UserContext);
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, refetch } = useQuery(['products', customersEmail], () => fetch(`  https://cryptic-hollows-87605.herokuapp.com/cart/${customersEmail}`).then(res => res.json()))
+  const { data: products, refetch } = useQuery(['products', customersEmail], () => fetch(`  http://localhost:5000/cart/${customersEmail}`).then(res => res.json()))
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -73,7 +73,7 @@ const Checkout = () => {
 
     }
 
-    fetch('  https://cryptic-hollows-87605.herokuapp.com/orderedVoucher', {
+    fetch('  http://localhost:5000/orderedVoucher', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -88,7 +88,7 @@ const Checkout = () => {
       })
 
 
-      fetch('  https://cryptic-hollows-87605.herokuapp.com/orderedVoucherForAdmin', {
+      fetch('  http://localhost:5000/orderedVoucherForAdmin', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -101,7 +101,7 @@ const Checkout = () => {
           toast.success('Address ')
           reset()
         })
-    fetch(`  https://cryptic-hollows-87605.herokuapp.com/cart2/${customersEmail}`, {
+    fetch(`  http://localhost:5000/cart2/${customersEmail}`, {
       method: 'DELETE',
     })
       .then(res => res.json())

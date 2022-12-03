@@ -14,7 +14,7 @@ const Cart = () => {
 
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`  https://cryptic-hollows-87605.herokuapp.com/cart/${customersEmail}`, {
+  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`  http://localhost:5000/cart/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -48,7 +48,7 @@ const Cart = () => {
 
   const increase = (id, p) => {
 
-    fetch(`  https://cryptic-hollows-87605.herokuapp.com/cart/${id}`, {
+    fetch(`  http://localhost:5000/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -80,7 +80,7 @@ const Cart = () => {
 if(p.quantity > 1){
 
 
-    fetch(`  https://cryptic-hollows-87605.herokuapp.com/cart/${id}`, {
+    fetch(`  http://localhost:5000/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -116,7 +116,7 @@ else{
 
   const handleDelete = (id, name,quantity) => {
 
-    fetch(`  https://cryptic-hollows-87605.herokuapp.com/cart/${id}`, {
+    fetch(`  http://localhost:5000/cart/${id}`, {
       method: 'DELETE',
 
     }).then(res => res.json())
@@ -131,8 +131,8 @@ else{
   }
 
   if (isLoading) {
-    return <div className='min-h-[600px]'>
-      <p>loading</p>
+    return <div className='min-h-[600px] text-center'>
+      <p className='font-bold'>Loading..</p>
     </div>
   }
   if (products.length === 0) return <div className='min-h-[600px] text-center font-bold mt-10 text-2xl'> <p>Sorry you do not add any product to cart. Please add  products to cart first.</p></div>

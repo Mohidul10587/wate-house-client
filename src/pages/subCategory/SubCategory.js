@@ -11,7 +11,7 @@ const SubCategory = () => {
   const query = useParams()
   const subCategoryName = query.subCategoryName;
 
-  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`  https://cryptic-hollows-87605.herokuapp.com/pro/${subCategoryName}`, {
+  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`  http://localhost:5000/pro/${subCategoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ const SubCategory = () => {
   }).then(res => res.json()))
 
   useEffect(() => {
-    fetch(`  https://cryptic-hollows-87605.herokuapp.com/proCount/${subCategoryName}`)
+    fetch(`  http://localhost:5000/proCount/${subCategoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [subCategoryName])

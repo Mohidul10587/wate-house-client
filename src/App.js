@@ -5,7 +5,7 @@ import Category from './pages/category/Category';
 import ProductDetails from './pages/product_details/ProductDetails'
 import Cart from './pages/cart/Cart';
 import Login from './pages/authentication/Login';
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import Form from './pages/admin/Form';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -33,14 +33,41 @@ import Search from './pages/search/Search';
 export const UserContext = createContext('mohid')
 
 function App() {
+  const navigate = useNavigate()
 
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
   const [countCartProducts, setCountCartProducts] = useState(0)
 
 
+
+
+
+  const [searchName, setSearchName] = useState('All');
+  const [searchedProducts, setSearchedProducts] = useState([]);
+
+
+
+
   useEffect(() => {
-    fetch(`  https://cryptic-hollows-87605.herokuapp.com/cartProductsCount/${customersEmail}`)
+    fetch(`  http://localhost:5000/productsName/${searchName}`)
+      .then(res => res.json())
+      .then(data => setSearchedProducts(data))
+  }, [searchName])
+
+  const search = (e) => {
+    e.preventDefault()
+    setSearchName(e.target.name.value)
+    navigate('/search')
+    e.target.name.value = ''
+  }
+
+
+
+
+
+  useEffect(() => {
+    fetch(`  http://localhost:5000/cartProductsCount/${customersEmail}`)
       .then(res => res.json())
       .then(data => setCountCartProducts(parseInt(data.count)))
   }, [customersEmail, countCartProducts])
@@ -49,7 +76,7 @@ function App() {
 
 
   return (
-    <UserContext.Provider value={{ countCartProducts, setCountCartProducts }}>
+    <UserContext.Provider value={{ countCartProducts, setCountCartProducts, searchedProducts, search }}>
       <div>
         <div>
           <Navbar />
