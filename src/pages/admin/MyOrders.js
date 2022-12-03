@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   const customersEmail = user?.email;
 
-  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`  http://localhost:5000/orderedVoucher/${customersEmail}`, {
+  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/orderedVoucher/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`

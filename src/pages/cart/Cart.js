@@ -14,7 +14,7 @@ const Cart = () => {
 
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`  http://localhost:5000/cart/${customersEmail}`, {
+  const { data: products, isLoading, refetch } = useQuery(['products', customersEmail], () => fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cart/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -48,7 +48,7 @@ const Cart = () => {
 
   const increase = (id, p) => {
 
-    fetch(`  http://localhost:5000/cart/${id}`, {
+    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -80,7 +80,7 @@ const Cart = () => {
 if(p.quantity > 1){
 
 
-    fetch(`  http://localhost:5000/cart/${id}`, {
+    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cart/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',
@@ -116,7 +116,7 @@ else{
 
   const handleDelete = (id, name,quantity) => {
 
-    fetch(`  http://localhost:5000/cart/${id}`, {
+    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cart/${id}`, {
       method: 'DELETE',
 
     }).then(res => res.json())

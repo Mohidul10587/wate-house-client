@@ -58,7 +58,7 @@ const Form = () => {
             img: imgUrl
           }
 
-          fetch('  http://localhost:5000/product', {
+          fetch('    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/product', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',

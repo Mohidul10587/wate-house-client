@@ -12,7 +12,7 @@ const useToken = user => {
 
         console.log('user information', user)
         if (email) {
-            fetch(`  http://localhost:5000/user/${email}`, {
+            fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

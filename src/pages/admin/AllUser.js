@@ -6,7 +6,7 @@ const AllUser = () => {
 
 
   const { isLoading, data: users ,refetch} = useQuery('users', () =>
-    fetch(`  http://localhost:5000/user`, {
+    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/user`, {
       method: 'GET',
       headers: {
         'authorization': `Bearer ${localStorage.getItem('accessToken')}`

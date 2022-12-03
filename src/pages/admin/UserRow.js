@@ -7,7 +7,7 @@ const UserRow = ({ user, refetch }) => {
 
   const makeAdmin = () => {
 
-    fetch(`  http://localhost:5000/user/admin/${email}`, {
+    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/user/admin/${email}`, {
       method: 'PUT',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`

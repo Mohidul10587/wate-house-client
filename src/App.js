@@ -50,7 +50,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`  http://localhost:5000/productsName/${searchName}`)
+    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/productsName/${searchName}`)
       .then(res => res.json())
       .then(data => setSearchedProducts(data))
   }, [searchName])
@@ -67,7 +67,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`  http://localhost:5000/cartProductsCount/${customersEmail}`)
+    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cartProductsCount/${customersEmail}`)
       .then(res => res.json())
       .then(data => setCountCartProducts(parseInt(data.count)))
   }, [customersEmail, countCartProducts])
