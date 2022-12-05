@@ -11,7 +11,7 @@ const SubCategory = () => {
   const query = useParams()
   const subCategoryName = query.subCategoryName;
 
-  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/pro/${subCategoryName}`, {
+  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`https://mohid.onrender.com/pro/${subCategoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ const SubCategory = () => {
   }).then(res => res.json()))
 
   useEffect(() => {
-    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/proCount/${subCategoryName}`)
+    fetch(`https://mohid.onrender.com/proCount/${subCategoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [subCategoryName])

@@ -15,7 +15,7 @@ const ProductDetails = () => {
   const navigate = useNavigate()
 
 
-  const { data: product, isLoading } = useQuery('product', () => fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/product/${productId}`).then(res => res.json()))
+  const { data: product, isLoading } = useQuery('product', () => fetch(`https://mohid.onrender.com/product/${productId}`).then(res => res.json()))
 
 
 
@@ -27,7 +27,7 @@ const ProductDetails = () => {
     }
 
 
-    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cart/${user.email}`, {
+    fetch(`https://mohid.onrender.com/cart/${user.email}`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

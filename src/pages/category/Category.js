@@ -14,7 +14,7 @@ const Category = () => {
   useEffect(() => {
     setPage(0)
   }, [categoryName])
-  const { data: products, isLoading } = useQuery(['products', categoryName, page, size], () => fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/products/new?page=${page}&size=${size}&categoryName=${categoryName}`, {
+  const { data: products, isLoading } = useQuery(['products', categoryName, page, size], () => fetch(`https://mohid.onrender.com/products/new?page=${page}&size=${size}&categoryName=${categoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -23,7 +23,7 @@ const Category = () => {
 
 
   useEffect(() => {
-    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/productsCount/${categoryName}`)
+    fetch(`https://mohid.onrender.com/productsCount/${categoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [categoryName])

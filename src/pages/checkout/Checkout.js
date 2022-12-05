@@ -11,7 +11,7 @@ const Checkout = () => {
   const value = useContext(UserContext);
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, refetch } = useQuery(['products', customersEmail], () => fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cart/${customersEmail}`).then(res => res.json()))
+  const { data: products, refetch } = useQuery(['products', customersEmail], () => fetch(`https://mohid.onrender.com/cart/${customersEmail}`).then(res => res.json()))
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -73,7 +73,7 @@ const Checkout = () => {
 
     }
 
-    fetch('    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/orderedVoucher', {
+    fetch('https://mohid.onrender.com/orderedVoucher', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -88,7 +88,7 @@ const Checkout = () => {
       })
 
 
-      fetch('    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/orderedVoucherForAdmin', {
+      fetch('https://mohid.onrender.com/orderedVoucherForAdmin', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -101,7 +101,7 @@ const Checkout = () => {
           toast.success('Address ')
           reset()
         })
-    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cart2/${customersEmail}`, {
+    fetch(`https://mohid.onrender.com/cart2/${customersEmail}`, {
       method: 'DELETE',
     })
       .then(res => res.json())

@@ -50,7 +50,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/productsName/${searchName}`)
+    fetch(`https://mohid.onrender.com/productsName/${searchName}`)
       .then(res => res.json())
       .then(data => setSearchedProducts(data))
   }, [searchName])
@@ -67,7 +67,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/cartProductsCount/${customersEmail}`)
+    fetch(`https://mohid.onrender.com/cartProductsCount/${customersEmail}`)
       .then(res => res.json())
       .then(data => setCountCartProducts(parseInt(data.count)))
   }, [customersEmail, countCartProducts])

@@ -58,7 +58,7 @@ const Form = () => {
             img: imgUrl
           }
 
-          fetch('    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/product', {
+          fetch('https://mohid.onrender.com/product', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',

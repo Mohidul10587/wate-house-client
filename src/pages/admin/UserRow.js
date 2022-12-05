@@ -7,7 +7,7 @@ const UserRow = ({ user, refetch }) => {
 
   const makeAdmin = () => {
 
-    fetch(`    https://new-e-commerce-server-4oscdiny6-mohidul10587.vercel.app/user/admin/${email}`, {
+    fetch(`https://mohid.onrender.com/user/admin/${email}`, {
       method: 'PUT',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`
