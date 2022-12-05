@@ -122,8 +122,8 @@ const Checkout = () => {
     <div className='min-h-[600px]'>
 
 
-      <h1 className='text-center text-2xl font-bold mb-6'>Add a shipping address</h1>
-      <div className='flex justify-center'>
+      <h1 className='text-center text-2xl font-bold mb-6 mt-10'>Add a shipping address</h1>
+      <div className='flex justify-center px-4'>
         <form className='w-[800px]' onSubmit={handleSubmit(onSubmit)}>
           {/* name */}
           <div className="form-control w-full ">
@@ -255,7 +255,7 @@ const Checkout = () => {
           </div>
 
 
-          <h1 className='text-center text-2xl font-bold mb-6'>Payment</h1>
+          <h1 className='text-center text-2xl font-bold md:mb-6 '>Payment</h1>
           <p> Send your money to this merchant bkash account 017xxxxxxxx ; Put the sender bkash number , amount of money and TrxID in the input box</p>
 
           <div className="form-control w-full ">
