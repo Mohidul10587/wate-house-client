@@ -131,16 +131,14 @@ else{
   }
 
   if (isLoading) {
-    return <div className='min-h-[600px] text-center'>
-      <p className='font-bold'>Loading..</p>
-    </div>
+    return <div className='min-h-[600px] flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
   }
   if (products.length === 0) return <div className='min-h-[600px] text-center font-bold mt-10 text-2xl'> <p>Sorry you do not add any product to cart. Please add  products to cart first.</p></div>
 
   return (
 
     <div className='min-h-[600px]'>
-      <h1 className='text-center font-bold text-2xl'>This is Cart</h1>
+      <h1 className='text-center font-bold text-3xl mt-10'>Cart</h1>
 
       <div className='sm:flex mt-10 px-2'>
         <table className='sm:w-1/2'>

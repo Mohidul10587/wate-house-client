@@ -29,9 +29,9 @@ const Category = () => {
   }, [categoryName])
 
   if (isLoading) {
-    return <div className='min-h-[600px] flex justify-center font-bold text-2xl'> <p>Loading...</p></div>
+    return <div className='min-h-[600px] flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
   }
-console.log(products.length)
+  console.log(products.length)
   return (
 
     <div className='min-h-[600px]'>
@@ -49,7 +49,7 @@ console.log(products.length)
       <div className='flex justify-center'>
         <div className='mt-10'>
           {
-            [...Array(Math.ceil(count / size)).keys()]?.map(number => <button key={number} className={page === number ? 'bg-pink-700 px-1 m-1  text-white border-[1px] border-pink-700 text-xs font-bold' : 'bg-white px-1 m-1  border-[1px] border-pink-700 text-xs font-bold'} onClick={() => setPage(number)}>{number + 1}</button>)
+            [...Array(Math.ceil(count / size)).keys()]?.map(number => <button key={number} className={page === number ? 'bg-pink-700 px-2 py-1 m-1 rounded-md  text-white border-[1px] border-pink-700  font-bold' : 'bg-white px-2 py-1 m-1 rounded-md  border-[1px] border-pink-700  font-bold'} onClick={() => setPage(number)}>{number + 1}</button>)
           }
         </div>
       </div>

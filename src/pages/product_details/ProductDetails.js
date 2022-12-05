@@ -58,12 +58,12 @@ const ProductDetails = () => {
 
 
   if (isLoading) {
-    return <div className='min-h-[600px] flex justify-center font-bold text-2xl'> <p>Loading...</p></div>
+    return <div className='min-h-[600px] flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
 
   }
   return (
     <div className='min-h-[600px]'>
-      <h1 className='text-3xl text-center'>Product Details</h1>
+      <h1 className='text-3xl text-center mt-10'>Product Details</h1>
       <div className='flex justify-center mt-10'>
 
         <div className=' border-2 border-pink-900 overflow-hidden rounded-lg w-10/12  sm:flex py-8'>
