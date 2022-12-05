@@ -11,7 +11,7 @@ const MyOrders = () => {
 
   const customersEmail = user?.email;
 
-  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`https://mohid.onrender.com/orderedVoucher/${customersEmail}`, {
+  const { data: orderedVouchers, isLoading } = useQuery(['orderedVouchers', user], () => fetch(`https://mohid-shop.onrender.com/orderedVoucher/${customersEmail}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`

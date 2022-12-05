@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 const Orders = () => {
 
 
-  const { data: orderedVouchers, isLoading, refetch } = useQuery('orderedVouchers', () => fetch('https://mohid.onrender.com/orderedVoucherForAdmin', {
+  const { data: orderedVouchers, isLoading, refetch } = useQuery('orderedVouchers', () => fetch('https://mohid-shop.onrender.com/orderedVoucherForAdmin', {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -15,7 +15,7 @@ const Orders = () => {
 
   const deleteVoucher = id => {
 
-    fetch(`https://mohid.onrender.com/orderedVoucherForAdmin/${id}`, {
+    fetch(`https://mohid-shop.onrender.com/orderedVoucherForAdmin/${id}`, {
       method: 'DELETE',
     }).then(res => res.json())
       .then(data => {

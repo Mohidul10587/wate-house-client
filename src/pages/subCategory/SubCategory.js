@@ -11,7 +11,7 @@ const SubCategory = () => {
   const query = useParams()
   const subCategoryName = query.subCategoryName;
 
-  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`https://mohid.onrender.com/pro/${subCategoryName}`, {
+  const { data: products, isLoading } = useQuery(['products', subCategoryName], () => fetch(`https://mohid-shop.onrender.com/pro/${subCategoryName}`, {
     method: 'GET',
     headers: {
       'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -19,7 +19,7 @@ const SubCategory = () => {
   }).then(res => res.json()))
 
   useEffect(() => {
-    fetch(`https://mohid.onrender.com/proCount/${subCategoryName}`)
+    fetch(`https://mohid-shop.onrender.com/proCount/${subCategoryName}`)
       .then(res => res.json())
       .then(data => setCount(data.count))
   }, [subCategoryName])

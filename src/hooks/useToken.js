@@ -12,7 +12,7 @@ const useToken = user => {
 
         console.log('user information', user)
         if (email) {
-            fetch(`https://mohid.onrender.com/user/${email}`, {
+            fetch(`https://mohid-shop.onrender.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

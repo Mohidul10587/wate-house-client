@@ -6,7 +6,7 @@ const AllUser = () => {
 
 
   const { isLoading, data: users ,refetch} = useQuery('users', () =>
-    fetch(`https://mohid.onrender.com/user`, {
+    fetch(`https://mohid-shop.onrender.com/user`, {
       method: 'GET',
       headers: {
         'authorization': `Bearer ${localStorage.getItem('accessToken')}`

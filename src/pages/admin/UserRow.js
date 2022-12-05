@@ -7,7 +7,7 @@ const UserRow = ({ user, refetch }) => {
 
   const makeAdmin = () => {
 
-    fetch(`https://mohid.onrender.com/user/admin/${email}`, {
+    fetch(`https://mohid-shop.onrender.com/user/admin/${email}`, {
       method: 'PUT',
       headers: {
         authorization: `Bearer ${localStorage.getItem('accessToken')}`

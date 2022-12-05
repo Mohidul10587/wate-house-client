@@ -8,7 +8,7 @@ const useAdmin = (user) => {
         const email = user?.email
 
         if (email) {
-            fetch(`https://mohid.onrender.com/admin/${email}`, {
+            fetch(`https://mohid-shop.onrender.com/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',

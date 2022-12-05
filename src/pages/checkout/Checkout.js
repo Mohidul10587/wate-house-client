@@ -11,7 +11,7 @@ const Checkout = () => {
   const value = useContext(UserContext);
   const [user] = useAuthState(auth)
   const customersEmail = user?.email;
-  const { data: products, refetch } = useQuery(['products', customersEmail], () => fetch(`https://mohid.onrender.com/cart/${customersEmail}`).then(res => res.json()))
+  const { data: products, refetch } = useQuery(['products', customersEmail], () => fetch(`https://mohid-shop.onrender.com/cart/${customersEmail}`).then(res => res.json()))
 
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -73,7 +73,7 @@ const Checkout = () => {
 
     }
 
-    fetch('https://mohid.onrender.com/orderedVoucher', {
+    fetch('https://mohid-shop.onrender.com/orderedVoucher', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -88,7 +88,7 @@ const Checkout = () => {
       })
 
 
-      fetch('https://mohid.onrender.com/orderedVoucherForAdmin', {
+      fetch('https://mohid-shop.onrender.com/orderedVoucherForAdmin', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
@@ -101,7 +101,7 @@ const Checkout = () => {
           toast.success('Address ')
           reset()
         })
-    fetch(`https://mohid.onrender.com/cart2/${customersEmail}`, {
+    fetch(`https://mohid-shop.onrender.com/cart2/${customersEmail}`, {
       method: 'DELETE',
     })
       .then(res => res.json())

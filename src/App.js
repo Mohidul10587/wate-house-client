@@ -50,7 +50,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`https://mohid.onrender.com/productsName/${searchName}`)
+    fetch(`https://mohid-shop.onrender.com/productsName/${searchName}`)
       .then(res => res.json())
       .then(data => setSearchedProducts(data))
   }, [searchName])
@@ -67,7 +67,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch(`https://mohid.onrender.com/cartProductsCount/${customersEmail}`)
+    fetch(`https://mohid-shop.onrender.com/cartProductsCount/${customersEmail}`)
       .then(res => res.json())
       .then(data => setCountCartProducts(parseInt(data.count)))
   }, [customersEmail, countCartProducts])

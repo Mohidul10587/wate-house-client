@@ -58,7 +58,7 @@ const Form = () => {
             img: imgUrl
           }
 
-          fetch('https://mohid.onrender.com/product', {
+          fetch('https://mohid-shop.onrender.com/product', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
