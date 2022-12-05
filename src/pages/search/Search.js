@@ -1,6 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { FaSearch } from 'react-icons/fa';
-import { useQuery } from 'react-query'
+import React, { useContext} from 'react'
 import { UserContext } from '../../App';
 import ProductCard from '../../components/ProductCard'
 

@@ -3,14 +3,11 @@ import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init';
-import { AiOutlineShoppingCart, AiOutlineHome, AiOutlineLogin, AiOutlineSearch } from 'react-icons/ai'
+import { AiOutlineShoppingCart, AiOutlineHome, AiOutlineLogin} from 'react-icons/ai'
 import { FaRegUser, FaSearch } from 'react-icons/fa'
 import { VscSignOut } from 'react-icons/vsc'
 import { useContext } from "react";
 import { UserContext } from '../../App';
-import { GoThreeBars } from 'react-icons/go';
-
-
 
 
 const Navbar = () => {
@@ -38,34 +35,18 @@ const Navbar = () => {
 
   return (
 
-
-
-
-
-
-
     <div className='sm:h-24 h-14 bg-pink-800 fixed z-30 w-full'>
-
-
-
-
-
-
-
-
 
       <div className='sm:h-28 h-14 bg-pink-800 fixed flex justify-between items-center z-30 w-full '>
         <Link className='md:w-1/3' to='/'> <p className=' font-bold py-2 text-white ml-4 sm:text-3xl text-xl'>LG </p></Link>
-        <div className='md:w-1/3'>
-          <div className='  '>
-
+        <div className='md:w-1/3 w-24'>
+          <div className=''>
             <form onSubmit={value.search}>
-              <div className='border-[1px] rounded-md px-1 w-[315px] h-10 flex justify-between items-center'>
-              <input className='pl-2  bg-pink-800 h-8 text-white' name='name' type="text" />
-              <button type="submit" className='px-3 h-8 font-xl text-white bg-pink-700 rounded-md ml-1'><FaSearch /></button>
+              <div className='border-[1px] rounded-md px-1 md:w-[315px] w-24 md:h-10 h-6 flex justify-between items-center'>
+              <input className='md:pl-2 w-full bg-pink-800 md:h-8 h-5 text-white' name='name' type="text" />
+              <button type="submit" className='md:px-3 px-1 md:h-8 h-3 font-xl text-white md:bg-pink-700 rounded-md ml-1'><FaSearch /></button>
               </div>
             </form>
-
           </div>
         </div>
 

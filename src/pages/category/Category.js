@@ -34,8 +34,6 @@ const Category = () => {
 console.log(products.length)
   return (
 
-
-
     <div className='min-h-[600px]'>
 
       <h1 className='font-bold text-3xl text-center my-10'> {categoryName}</h1>

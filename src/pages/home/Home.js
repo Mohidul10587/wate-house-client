@@ -3,17 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-
   const [categories, setCategory] = useState([])
-
-
   useEffect(() => {
     fetch('category.json')
       .then(res => res.json())
       .then(data => setCategory(data))
   }, [categories])
-
-
 
   return (
     <div className='min-h-[600px]'>
@@ -22,8 +17,6 @@ const Home = () => {
       <img src="b.jpeg" className='w-full max-h-[600px]' alt="" />
 
       <h1 className='font-bold text-3xl text-center mt-10'>Brows by category</h1>
-
-
 
       {categories?.map((category,index) => <div className='mt-10' key={index}>
         <h2 className='font-bold text-xl mb-4 sm:text-left text-center px-4'>{category.categoryName}</h2>
