@@ -4,6 +4,7 @@ import ProductCard from '../../components/ProductCard'
 
 const Search = () => {
     const value = useContext(UserContext);
+if(value.loading)return <div className='min-h-[600px] flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
 
 
     return (

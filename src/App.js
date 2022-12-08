@@ -45,25 +45,34 @@ function App() {
 
   const [searchName, setSearchName] = useState('All');
   const [searchedProducts, setSearchedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
 
 
 
 
   useEffect(() => {
+    setLoading(true)
     fetch(`https://mohid-shop.onrender.com/productsName/${searchName}`)
       .then(res => res.json())
-      .then(data => setSearchedProducts(data))
+      .then(data => {
+        setSearchedProducts(data)
+        setLoading(false)
+
+      })
   }, [searchName])
 
   const search = (e) => {
     e.preventDefault()
+
+    if (!e.target.name.value) {
+      return
+    }
+
     setSearchName(e.target.name.value)
     navigate('/search')
     e.target.name.value = ''
   }
-
-
-
 
 
   useEffect(() => {
@@ -76,7 +85,7 @@ function App() {
 
 
   return (
-    <UserContext.Provider value={{ countCartProducts, setCountCartProducts, searchedProducts, search }}>
+    <UserContext.Provider value={{ countCartProducts, setCountCartProducts, searchedProducts, search, loading }}>
       <div>
         <div>
           <Navbar />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useQuery } from 'react-query'
+
 import { Link, Outlet } from 'react-router-dom'
 import auth from '../../firebase.init'
 import useAdmin from '../../hooks/useAdmin'
@@ -21,7 +21,7 @@ const Dashboard = () => {
   return (
 
 
-    <div className="drawer drawer-mobile sm:mx-2 mt-6">
+    <div className="drawer drawer-mobile sm:mx-2  mt-6">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content sm:px-2">
         {/* <!-- Page content here --> */}
@@ -56,4 +56,3 @@ export default Dashboard
 
 
 
-{/* */ }

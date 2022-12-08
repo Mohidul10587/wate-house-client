@@ -31,7 +31,7 @@ const Category = () => {
   if (isLoading) {
     return <div className='min-h-[600px] flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
   }
-  console.log(products.length)
+
   return (
 
     <div className='min-h-[600px]'>
