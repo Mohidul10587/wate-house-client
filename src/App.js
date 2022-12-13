@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import { AiFillHome } from 'react-icons/ai'
 import Home from './pages/Home'
 import Form from './pages/Form'
+import Item from './pages/Item'
 
 function App() {
 
@@ -16,6 +17,8 @@ function App() {
       <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/form' element={<Form />} />
+            <Route path='/item/:id' element={<Item />} />
+
 
        
             {/* <Route path='checkout' element={<RequireAuth><Checkout /></RequireAuth>} /> */}
