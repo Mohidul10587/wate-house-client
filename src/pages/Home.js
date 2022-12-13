@@ -13,7 +13,16 @@ const Home = () => {
   }
 
   return (
-    <div>{items.length}</div>
+    <div>
+
+      <div  className='grid grid-cols-3 gap-3 place-items-center'>
+        {items.map(item => <div>
+          <p>{item.name}</p>
+          <img className='w-44 h-44 ' src={item.img} alt="" />
+
+        </div>)}
+      </div>
+    </div>
   )
 }
 
