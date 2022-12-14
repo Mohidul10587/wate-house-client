@@ -25,21 +25,20 @@ const Form = () => {
 
           const imgUrl = result.data.url
 
-          const item = {
-            name: data.name,
-            price: data.price,
-            quantity: data.quantity,
-            description: data.description,
-            img: imgUrl
-          }
-
           fetch('http://localhost:5000/items', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',
 
             },
-            body: JSON.stringify(item)
+            body: JSON.stringify({
+              name: data.name,
+              supplierName: data.supplierName,
+              price: data.price,
+              quantity: data.quantity,
+              description: data.description,
+              img: imgUrl
+            })
           })
             .then(res => res.json())
             .then(inserted => {
@@ -59,7 +58,7 @@ const Form = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="form-control w-full max-w-xs">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text">Name of Item</span>
 
             </label>
             <input
@@ -69,6 +68,32 @@ const Form = () => {
               className="input input-bordered border-black w-full max-w-xs"
 
               {...register("name", {
+                required: {
+                  value: true,
+                  message: 'This is required field'
+                }
+
+              })} />
+
+            <label className="label">
+
+              {errors.name?.type === 'required' && <span className='text-red-500'>{errors.name?.message}</span>}
+
+            </label>
+
+          </div>
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Name of Supplier</span>
+
+            </label>
+            <input
+
+              type="text"
+              placeholder="Name"
+              className="input input-bordered border-black w-full max-w-xs"
+
+              {...register("supplierName", {
                 required: {
                   value: true,
                   message: 'This is required field'

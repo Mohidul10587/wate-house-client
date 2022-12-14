@@ -23,6 +23,8 @@ const Home = () => {
           <p>{item.price}</p>
           <p>{item.description}</p>
           <p>{item.quantity}</p>
+          <p>{item.supplierName}</p>
+
           <Link to={`item/${item._id}`}><button className='px-2 border-2 border-pink-900 rounded-md'>Update</button> </Link>
 
         </div>)}

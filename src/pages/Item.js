@@ -54,7 +54,7 @@ const Item = () => {
                 name: item.name,
                 price: item.price,
                 img: item.img,
-                quantity: item.quantity + parseInt(data.quantity),
+                quantity: parseInt(item.quantity) + parseInt(data.quantity),
                 description: item.description
             })
         }).then(res => res.json())
@@ -81,25 +81,24 @@ const Item = () => {
             <p>{item.price}</p>
             <p>{item.description}</p>
             <p>{item.quantity}</p>
-            <button onClick={() => handleDelivered(item._id)} className='px-2 border-2 border-pink-900 rounded-md'>Delivered</button>
+            <button onClick={() => handleDelivered(item._id)} className='px-3 py-3 text-white font-bold hover:bg-pink-700  bg-pink-500 rounded-md'>Delivered</button>
             <div className=''>
 
 
 
 
                 {/* The button to open modal */}
-                <label htmlFor="my-modal-3" className="btn">open modal</label>
+                <label htmlFor="my-modal-3" className="btn mt-3 border-none hover:bg-pink-700  bg-pink-500">Add Item</label>
 
                 {/* Put this part before </body> tag */}
                 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
-               <div className="modal">
+                <div className="modal">
                     <div className="modal-box relative">
-                     
+                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 bg-pink-500 hover:bg-pink-700">✕</label>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
                                     <span className="label-text">Quantity</span>
-
                                 </label>
                                 <input
 
@@ -120,35 +119,14 @@ const Item = () => {
                                     {errors.name?.type === 'required' && <span className='text-red-500'>{errors.name?.message}</span>}
 
                                 </label>
-
-
-
-
                             </div>
-
-
-
-
-
                             <button
                                 type="submit"
-                                className="btn btn-outline  mt-10 hover:bg-pink-700"><label htmlFor="my-modal-3" className='px-32'>Add</label></button>
-
-
+                                className="   mt-10 "><label htmlFor="my-modal-3" className='px-36 bg-pink-600 py-4 font-bold text-white rounded-md'>Add</label>
+                            </button>
                         </form>
                     </div>
                 </div>
-
-                
-
-
-
-
-
-
-
-
-
             </div>
 
         </div>

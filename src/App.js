@@ -6,6 +6,9 @@ import { AiFillHome } from 'react-icons/ai'
 import Home from './pages/Home'
 import Form from './pages/Form'
 import Item from './pages/Item'
+import Login from './pages/Login';
+import SignUp from './pages/SingUp';
+import RequireAuth from './pages/RequireAuth'
 
 function App() {
 
@@ -17,9 +20,10 @@ function App() {
       <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/form' element={<Form />} />
-            <Route path='/item/:id' element={<Item />} />
+            <Route path='/item/:id' element={<RequireAuth><Item /></RequireAuth>} />
 
-
+            <Route path='login' element={<Login />} />
+            <Route path='signUp' element={<SignUp />} />
        
             {/* <Route path='checkout' element={<RequireAuth><Checkout /></RequireAuth>} /> */}
 
