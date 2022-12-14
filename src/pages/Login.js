@@ -22,7 +22,7 @@ const Login = () => {
 console.log(user)
     useEffect(() => {
         if (user) {
-            navigate('/');
+            navigate(from, { replace: true });
         }
     }, [user, from, navigate])
 
