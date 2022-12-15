@@ -1,10 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
-import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
+import { toast } from 'react-toastify';
+
 const Item = () => {
 
-    const [openModal, setOpenModal] = useState(true)
+    const [user] = useAuthState(auth)
 
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
@@ -23,17 +26,15 @@ const Item = () => {
                     'content-type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: item.name,
-                    price: item.price,
-                    img: item.img,
+
                     quantity: item.quantity - 1,
-                    description: item.description
+
                 })
             }).then(res => res.json())
                 .then(data => {
                     console.log(data)
                     if (data.modifiedCount) {
-
+                        toast.success('Delivered successfully')
                         refetch()
                     }
                 })
@@ -44,25 +45,22 @@ const Item = () => {
 
 
     const onSubmit = async data => {
-        setOpenModal(false)
+
         fetch(`http://localhost:5000/updateItemsQuantity/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
             },
             body: JSON.stringify({
-                name: item.name,
-                price: item.price,
-                img: item.img,
                 quantity: parseInt(item.quantity) + parseInt(data.quantity),
-                description: item.description
             })
         }).then(res => res.json())
             .then(data => {
                 console.log(data)
                 if (data.modifiedCount) {
-
+                    toast.success('Quantity Added')
                     refetch()
+                    reset()
                 }
             })
 
@@ -94,7 +92,7 @@ const Item = () => {
                 <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                 <div className="modal">
                     <div className="modal-box relative">
-                    <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 bg-pink-500 hover:bg-pink-700">✕</label>
+                        <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 bg-pink-500 hover:bg-pink-700">✕</label>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label">
@@ -103,8 +101,8 @@ const Item = () => {
                                 <input
 
                                     type="number"
-                                    placeholder="Name"
-                                    className="input input-bordered border-black w-full max-w-xs"
+                                    placeholder="Quantity"
+                                    className="input input-bordered border-black w-full "
 
                                     {...register("quantity", {
                                         required: {
@@ -116,14 +114,15 @@ const Item = () => {
 
                                 <label className="label">
 
-                                    {errors.name?.type === 'required' && <span className='text-red-500'>{errors.name?.message}</span>}
+                                    {errors.quantity?.type === 'required' && <span className='text-red-500'>{errors.quantity?.message}</span>}
 
                                 </label>
                             </div>
-                            <button
+                            <input
                                 type="submit"
-                                className="   mt-10 "><label htmlFor="my-modal-3" className='px-36 bg-pink-600 py-4 font-bold text-white rounded-md'>Add</label>
-                            </button>
+                                value='Add'
+                                className=" w-80 bg-pink-600 py-4 font-bold text-white rounded-md  mt-2 " />
+
                         </form>
                     </div>
                 </div>

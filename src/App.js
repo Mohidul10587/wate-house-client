@@ -2,14 +2,15 @@
 import Navbar from './share/navbar/Navbar'
 import Footer from './share/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
-import { AiFillHome } from 'react-icons/ai'
 import Home from './pages/Home'
 import Form from './pages/Form'
 import Item from './pages/Item'
 import Login from './pages/Login';
 import SignUp from './pages/SingUp';
 import RequireAuth from './pages/RequireAuth'
-
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import MyItems from './pages/MyItems';
 function App() {
 
   return (
@@ -21,21 +22,16 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/form' element={<Form />} />
             <Route path='/item/:id' element={<RequireAuth><Item /></RequireAuth>} />
+            <Route path='/myItems' element={<RequireAuth><MyItems /></RequireAuth>} />
+
 
             <Route path='login' element={<Login />} />
             <Route path='signUp' element={<SignUp />} />
        
-            {/* <Route path='checkout' element={<RequireAuth><Checkout /></RequireAuth>} /> */}
-
-            {/* <Route path='dashboard' element={<RequireAuth><Dashboard /> </RequireAuth>}>
-              <Route index='profile' element={<Profile></Profile>}></Route>
-              <Route path='MyOrders' element={<MyOrders></MyOrders>}></Route>
-              <Route path='AllOrders' element={<RequireAdmin><Orders /></RequireAdmin>}></Route>
-              <Route path='form' element={<RequireAdmin><Form /></RequireAdmin>}></Route>
-              <Route path='allUser' element={<RequireAdmin><AllUser /></RequireAdmin>}></Route>
-            </Route> */}
+      
           </Routes>
       </div>
+      <ToastContainer />
       <Footer />
     </div>
 

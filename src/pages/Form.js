@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../firebase.init';
 
 
 const Form = () => {
 
-
+  const[user]=useAuthState(auth)
   const { register, formState: { errors }, handleSubmit, reset } = useForm();
   const imageStorageKey = '6c0277e2286d8c4a1059080d1574e2a7'
 
@@ -37,14 +39,15 @@ const Form = () => {
               price: data.price,
               quantity: data.quantity,
               description: data.description,
-              img: imgUrl
+              img: imgUrl,
+              email:user.email
             })
           })
             .then(res => res.json())
-            .then(inserted => {
+            .then(() => {
 
               alert('ok')
-              
+              reset()
             })
         }
       })
