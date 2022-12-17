@@ -19,7 +19,7 @@ function App() {
 
     <div>
       <Navbar />
-      <div className='sm:px-2 sm:pt-[120px] pt-[80px] min-h-[550px]'>
+      <div className='sm:px-2 sm:pt-[100px] pt-[80px] min-h-[550px]'>
       <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/form' element={<Form />} />

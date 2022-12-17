@@ -20,14 +20,18 @@ const Navbar = () => {
 
   return (
 
-    <div className='sm:h-24 h-14 bg-pink-800 fixed z-30 w-full'>
+    <div className=''>
 
-      <div className='sm:h-28 h-14 bg-pink-800 fixed flex justify-between items-center z-30 w-full '>
+      <div className=' bg-pink-800 sm:h-20 h-14 fixed flex justify-between items-center z-30 w-full '>
         <Link className='md:w-1/3' to='/'> <p className=' font-bold py-2 text-white ml-4 sm:text-3xl text-xl'>LG </p></Link>
     
-        <Link to='/form'> <p className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white'>Form</p></Link>
-        <Link to='/myItems'> <p className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white'>My Items</p></Link>
-        {user ? <button className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white' onClick={signedOut}><VscSignOut /></button> : <Link to="/login"><button className='sm:mx-3 mx-1 my-3 px-3 text-2xl font-bold text-white' ><AiOutlineLogin /></button></Link>}
+       
+        
+        {user ? <div className='flex'>
+        <Link to='/manageInventory'> <p className='sm:mx-3 mx-1 my-3 px-3  font-bold text-white'> Manage Inventory</p></Link>
+          <Link to='/myItems'> <p className='sm:mx-3 mx-1 my-3 px-3  font-bold text-white'>My Items</p></Link>
+          <button className='sm:mx-3 mx-1  my-3 px-3  font-bold text-white' onClick={signedOut}> Log Out</button>
+        </div> : <Link to="/login"><button className='sm:mx-3 mx-1 my-3 px-3  font-bold text-white' >Log In</button></Link>}
 
       </div>
     </div>

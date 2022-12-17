@@ -29,10 +29,8 @@ console.log(user)
     let firebaseError;
 
     if (loading) {
-
-        return <div className='flex justify-center items-center h-screen'> <p>Loading</p>
-        </div>
-    }
+        return <div className=' flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
+      }
 
     if (error) {
         firebaseError = <small className='text-red-500'>{error?.message}</small>

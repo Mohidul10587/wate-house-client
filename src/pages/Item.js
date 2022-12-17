@@ -70,19 +70,23 @@ const Item = () => {
     }
     return (
         <div>
-            <div className='text-end'><Link to='/manageInventory'>  <button  className='px-3 py-3 text-white font-bold hover:bg-pink-700  bg-pink-500 rounded-md'> Manage Inventory</button></Link>
+            
+            <div className='text-end '><Link to='/manageInventory'>  <button  className='px-3 py-3 text-white font-bold hover:bg-pink-700  bg-pink-500 rounded-md'> Manage Inventory</button></Link>
             </div>
-            <div className='border-2 border-pink-600 p-3 mt-3'>
-                <p>{item.name}</p>
-                <img className='w-44 h-44 ' src={item.img} alt="" />
-                <p>{item.price}</p>
-                <p>{item.description}</p>
-                <p>{item.quantity}</p>
-                <button onClick={() => handleDelivered(item._id)} className='px-3 py-3 text-white font-bold hover:bg-pink-700  bg-pink-500 rounded-md'>Delivered</button>
-                <div className=''>
+            <div className='b p-3 mt-3'>
+                <p className='text-center font-bold text-4xl mb-4'>{item.name}</p>
+               <div className='flex justify-center'>
+               <img className=' w-8/12 ' src={item.img} alt="" />
+               </div>
+                <p>Price:{item.price} TK</p>
+                <p>{item.description} </p>
+                <p>Quantity: {item.quantity}</p>
+              <div className='flex justify-center mt-8'>
+              <button onClick={() => handleDelivered(item._id)} className='px-3 btn border-none  text-white font-bold hover:bg-pink-700  bg-pink-500 rounded-md'>DELIVERED</button>
+                <div className='ml-2'>
 
                     {/* The button to open modal */}
-                    <label htmlFor="my-modal-3" className="btn mt-3 border-none hover:bg-pink-700  bg-pink-500">Add Item</label>
+                    <label htmlFor="my-modal-3" className="btn border-none hover:bg-pink-700  bg-pink-500">Add Item</label>
                     {/* Put this part before </body> tag */}
                     <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                     <div className="modal">
@@ -122,6 +126,7 @@ const Item = () => {
                         </div>
                     </div>
                 </div>
+              </div>
             </div>
         </div>
     )
