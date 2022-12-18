@@ -1,12 +1,13 @@
-import React from 'react'
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import React, { useEffect } from 'react'
+import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
 
 
 const SignUp = () => {
 
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
@@ -19,8 +20,14 @@ const SignUp = () => {
 
     const [updateProfile, updateError] = useUpdateProfile(auth);
 
-    console.log(user)
-
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+  
+    useEffect(() => {
+        if (user || gUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, gUser, from, navigate])
 
 
     if (loading) return <div className='flex justify-center items-center h-screen'> <p>Loading...</p>
@@ -29,9 +36,7 @@ const SignUp = () => {
     if (error || updateError) {
         firebaseError = <small className='text-red-500'>{error?.message || updateError?.message}</small>
     }
-    if (user) {
-        navigate('/');
-    }
+
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name });
@@ -136,8 +141,12 @@ const SignUp = () => {
 
 
                     </form>
-                    <small className='mb-28'>Already have an account<Link className='text-pink-700 ml-4' to='/logIn'>Go to Login</Link></small>
+                    <small className=''>Already have an account<Link className='text-pink-700 ml-4' to='/logIn'>Go to Login</Link></small>
 
+
+                    <div className="divider">OR</div>
+
+                    <button onClick={() => signInWithGoogle()} className="btn btn-outline w-full hover:bg-pink-700">Continue with google</button>
 
 
 

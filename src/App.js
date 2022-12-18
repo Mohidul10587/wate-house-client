@@ -4,7 +4,7 @@ import Footer from './share/footer/Footer'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Form from './pages/Form'
-import Item from './pages/Item'
+import Inventory from './pages/Inventory'
 import ManageInventory from './pages/ManageInventory'
 
 import Login from './pages/Login';
@@ -13,6 +13,7 @@ import RequireAuth from './pages/RequireAuth'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import MyItems from './pages/MyItems';
+import Blog from './pages/Blog';
 function App() {
 
   return (
@@ -23,9 +24,11 @@ function App() {
       <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/form' element={<Form />} />
+            <Route path='/blog' element={<Blog />} />
+
             <Route path='/manageInventory' element={<ManageInventory />} />
 
-            <Route path='/item/:id' element={<RequireAuth><Item /></RequireAuth>} />
+            <Route path='/inventory/:id' element={<RequireAuth><Inventory /></RequireAuth>} />
             <Route path='/myItems' element={<RequireAuth><MyItems /></RequireAuth>} />
 
 
