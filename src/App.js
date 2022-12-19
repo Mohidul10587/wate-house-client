@@ -14,6 +14,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import MyItems from './pages/MyItems';
 import Blog from './pages/Blog';
+import NotFound from './pages/NotFound';
 function App() {
 
   return (
@@ -34,7 +35,7 @@ function App() {
 
             <Route path='login' element={<Login />} />
             <Route path='signUp' element={<SignUp />} />
-       
+            <Route path='*' element={<NotFound />} />
       
           </Routes>
       </div>
