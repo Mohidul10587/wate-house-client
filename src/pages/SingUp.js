@@ -1,3 +1,4 @@
+import { sendEmailVerification } from 'firebase/auth';
 import React, { useEffect } from 'react'
 import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
@@ -25,16 +26,22 @@ const SignUp = () => {
   
     useEffect(() => {
         if (user || gUser) {
+
+            sendEmailVerification(auth.currentUser)
+            .then(() => {
+              alert('An email has sent for verify to your email')
+            });
+            console.log(user || gUser)
             navigate(from, { replace: true });
         }
     }, [user, gUser, from, navigate])
 
 
-    if (loading) return <div className='flex justify-center items-center h-screen'> <p>Loading...</p>
+    if (loading || gLoading) return <div className='flex justify-center items-center h-screen'> <p>Loading...</p>
     </div>
     let firebaseError;
-    if (error || updateError) {
-        firebaseError = <small className='text-red-500'>{error?.message || updateError?.message}</small>
+    if (error || gError|| updateError) {
+        firebaseError = <small className='text-red-500'>{error?.message || gError?.message || updateError?.message}</small>
     }
 
     const onSubmit = async data => {
