@@ -13,7 +13,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className='grid grid-cols-3 gap-3 place-items-center text-center px-10'>
+      <div className='grid md:grid-cols-3 grid-cols-1 gap-3 place-items-center text-center md:px-10 px-1'>
         {items?.slice(0, 6).map(item => <div key={item._id}className='border-2 border-pink-600 p-3 rounded-lg w-full'>
       <img className='w-full h-60' src={item.img} alt="" />
       <p className='font-bold mt-3'>{item.name}</p>
