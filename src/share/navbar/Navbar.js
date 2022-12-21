@@ -57,9 +57,9 @@ const Navbar = () => {
         <div className={dropdown ? 'bg-pink-600  md:hidden fixed sm:top-24 top-14 w-64  text-white z-30 -right-64 transition-all duration-700 ' : ' bg-pink-600 md:hidden fixed sm:top-24 top-14 w-64 right-0 text-white z-30 transition-all duration-700'} >
           <Link to='/'>  <p onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center ">Home</p></Link>
           {user ? <div>
-            <Link to='/'><p onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center">Manage Inventory </p></Link>
-            <Link to='/cart'><p onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center">My Items</p></Link>
-            <Link to='/search'><p onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center" >Add new item</p></Link>
+            <Link to='/manageInventory'><p onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center">Manage Inventory </p></Link>
+            <Link to='/myItems'><p onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center">My Items</p></Link>
+            <Link to='/form'><p onClick={() => setDropdown(true)} className=" border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center" >Add new item</p></Link>
 
             <button className='border hover:border-white px-2 mx-2 border-pink-700  my-2 flex h-10 items-center w-full' onClick={() => {
               signedOut()
