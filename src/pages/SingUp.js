@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword, useUpdateProfile, useSignInWithGoogl
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
+import Spinner from '../components/Spinner';
 
 
 const SignUp = () => {
@@ -37,8 +38,8 @@ const SignUp = () => {
     }, [user, gUser, from, navigate])
 
 
-    if (loading || gLoading) return <div className='flex justify-center items-center h-screen'> <p>Loading...</p>
-    </div>
+    if (loading || gLoading)     return <div className=' flex justify-center font-bold text-3xl mt-10'><Spinner /></div>
+
     let firebaseError;
     if (error || gError|| updateError) {
         firebaseError = <small className='text-red-500'>{error?.message || gError?.message || updateError?.message}</small>

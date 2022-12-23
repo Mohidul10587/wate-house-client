@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { toast } from 'react-toastify';
+import Spinner from '../components/Spinner';
 
 const Item = () => {
 
@@ -66,7 +67,7 @@ const Item = () => {
 
     }
     if (isLoading) {
-        return <div className=' flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
+        return <div className=' flex justify-center font-bold text-3xl mt-10'><Spinner /></div>
     }
     return (
         <div>

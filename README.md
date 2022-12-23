@@ -5,8 +5,8 @@
 
 ## Site description
 
-* Item 1
-* Item 2
-* Item 3
-* Item 2
-* Item 3
+* This is an Inventory management site.
+* In the home page you can show the inventories.
+* By Clicking on the update button you will go to a single inventory page.
+* After  clicking on delivery button the quantity will decrement one by one.
+* Add item button for add more inventories .
