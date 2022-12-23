@@ -15,13 +15,13 @@ const Item = () => {
     const query = useParams()
     const id = query.id;
 
-    const { data: item, isLoading, refetch } = useQuery(['item'], () => fetch(`http://localhost:5000/singleItem/${id}`, {
+    const { data: item, isLoading, refetch } = useQuery(['item'], () => fetch(`https://ware-house-lymk.onrender.com/singleItem/${id}`, {
         method: 'GET',
     }).then(res => res.json()))
 
     const handleDelivered = id => {
         if (item.quantity > 0) {
-            fetch(`http://localhost:5000/updateItemsQuantity/${id}`, {
+            fetch(`https://ware-house-lymk.onrender.com/updateItemsQuantity/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
@@ -47,7 +47,7 @@ const Item = () => {
 
     const onSubmit = async data => {
 
-        fetch(`http://localhost:5000/updateItemsQuantity/${id}`, {
+        fetch(`https://ware-house-lymk.onrender.com/updateItemsQuantity/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

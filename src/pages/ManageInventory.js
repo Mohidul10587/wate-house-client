@@ -7,14 +7,14 @@ import { toast } from 'react-toastify';
 const ManageInventory = () => {
 
 
-  const { data: items, isLoading, refetch } = useQuery(['items'], () => fetch(`http://localhost:5000/items`, {
+  const { data: items, isLoading, refetch } = useQuery(['items'], () => fetch(`https://ware-house-lymk.onrender.com/items`, {
     method: 'GET',
   }).then(res => res.json()))
 
 
   const handleDelete = (id, name) => {
 
-    fetch(`http://localhost:5000/items/${id}`, {
+    fetch(`https://ware-house-lymk.onrender.com/items/${id}`, {
       method: 'DELETE',
 
     }).then(res => res.json())
@@ -34,21 +34,21 @@ const ManageInventory = () => {
   }
 
   return (
-    <div>
+    <div className='px-2'>
 
 <div className='text-end pr-4 my-4'>
   <Link to='/form'><button className='btn bg-pink-500 hover:bg-pink-700'>Add new item</button></Link>
 </div>
 
       <table  className="w-full  border-2 border-pink-500">
-        <thead className='h-14 text-xl border-2 border-pink-500'>
+        <thead className='h-14 md:text-xl border-2 border-pink-500'>
           <tr>
             <th className='text-center '>Img</th>
             <th className='text-center '>Name</th>
             <th className='text-center '>Price</th>
-            <th className='text-center '>Quantity</th>
+            <th className='text-center '>Qnty</th>
             <th className='text-center '>Supplier</th>
-            <th className='text-center '>Delete</th>
+            <th className='text-center '>Del</th>
           </tr>
         </thead>
         <tbody>

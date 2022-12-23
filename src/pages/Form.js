@@ -27,7 +27,7 @@ const Form = () => {
 
           const imgUrl = result.data.url
 
-          fetch('http://localhost:5000/items', {
+          fetch('https://ware-house-lymk.onrender.com/items', {
             method: 'POST',
             headers: {
               'content-type': 'application/json',

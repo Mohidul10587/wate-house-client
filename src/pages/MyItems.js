@@ -8,7 +8,7 @@ const MyItems = () => {
 const [user] = useAuthState(auth)
 const email = user.email;
 
-  const { data: items, isLoading,refetch } = useQuery(['items',user], () => fetch(`http://localhost:5000/myItems/${email}`, {
+  const { data: items, isLoading,refetch } = useQuery(['items',user], () => fetch(`https://ware-house-lymk.onrender.com/myItems/${email}`, {
     method: 'GET',
   }).then(res => res.json()))
 
@@ -20,7 +20,7 @@ const email = user.email;
   }
   const handleDelete = (id, name) => {
 
-    fetch(`http://localhost:5000/items/${id}`, {
+    fetch(`https://ware-house-lymk.onrender.com/items/${id}`, {
       method: 'DELETE',
 
     }).then(res => res.json())

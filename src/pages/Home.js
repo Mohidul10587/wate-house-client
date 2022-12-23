@@ -5,7 +5,7 @@ import Spinner from '../components/Spinner';
 import Slider from '../components/Slider';
 
 const Home = () => {
-  const { data: items, isLoading } = useQuery(['items'], () => fetch(`http://localhost:5000/items`, {
+  const { data: items, isLoading } = useQuery(['items'], () => fetch(`https://ware-house-lymk.onrender.com/items`, {
     method: 'GET',
   }).then(res => res.json()))
 
