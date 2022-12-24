@@ -17,6 +17,8 @@ const Form = () => {
     formData.append('image', image)
 
 
+
+    
     fetch(`https://api.imgbb.com/1/upload?key=${imageStorageKey}`, {
       method: 'POST',
       body: formData
