@@ -2,31 +2,13 @@ import React from 'react'
 
 const Slider = () => {
   return (
-<div id="carouselExampleSlidesOnly" className="carousel slide relative" data-bs-ride="carousel">
-  <div className="carousel-inner relative w-full overflow-hidden">
-    <div className="carousel-item active relative float-left w-full">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/041.webp"
-        className="block w-full"
-        alt="Wild Landscape"
-      />
+    <div className='w-full h-screen'>
+      <div style={{ backgroundImage: "url(/img/byke.jpeg)" }} className="w-full h-screen bg-center bg-contain bg-no-repeat">
+        <div className='h-full w-full bg-gray-900 bg-opacity-80 flex justify-center items-center'>
+          <p className='font bold text-7xl text-white'>Welcome to our bike  world</p>
+        </div>
+      </div>
     </div>
-    <div className="carousel-item relative float-left w-full">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/042.webp"
-        className="block w-full"
-        alt="Camera"
-      />
-    </div>
-    <div className="carousel-item relative float-left w-full">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/new/slides/043.webp"
-        className="block w-full"
-        alt="Exotic Fruits"
-      />
-    </div>
-  </div>
-</div>
   )
 }
 

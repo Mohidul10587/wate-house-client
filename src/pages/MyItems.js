@@ -37,14 +37,14 @@ const email = user.email;
   return (
     <div>
       <div className='grid md:grid-cols-3 grid-cols-1 gap-3 place-items-center text-center md:px-10 px-1'>
-        {items?.map(item =>     <div key={item._id} className='border-2 border-pink-600 p-3 rounded-lg w-full'>
+        {items?.map(item =>     <div key={item._id} className='border-2 border-gray-600 p-3 rounded-lg w-full'>
       <img className='w-full h-60' src={item.img} alt="" />
       <p className='font-bold mt-3'>{item.name}</p>
       <p>Price: {item.price}</p>
       <p className='text-justify h-32 overflow-y-scroll py-2'>{item.description}</p>
       <p>Quantity :{item.quantity}</p>
       <p>Supplier:{item.supplierName}</p>
-      <button onClick={() => handleDelete(item._id, item.name)} className=' text-white  rounded-md px-4 mt-2 py-2 bg-pink-500 hover:bg-pink-700'>Delete</button>
+      <button onClick={() => handleDelete(item._id, item.name)} className=' text-white  rounded-md px-4 mt-2 py-2 bg-gray-500 hover:bg-gray-700'>Delete</button>
 
     </div>)}
       </div>

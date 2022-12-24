@@ -72,7 +72,7 @@ const Item = () => {
     return (
         <div>
             
-            <div className='text-end '><Link to='/manageInventory'>  <button  className='px-3 py-3 text-white font-bold hover:bg-pink-700  bg-pink-500 rounded-md'> Manage Inventory</button></Link>
+            <div className='text-end '><Link to='/manageInventory'>  <button  className='px-3 py-3 text-white font-bold hover:bg-gray-700  bg-gray-500 rounded-md'> Manage Inventory</button></Link>
             </div>
             <div className='b p-3 mt-3'>
                 <p className='text-center font-bold text-4xl mb-4'>{item.name}</p>
@@ -83,16 +83,16 @@ const Item = () => {
                 <p>{item.description} </p>
                 <p>Quantity: {item.quantity}</p>
               <div className='flex justify-center mt-8'>
-              <button onClick={() => handleDelivered(item._id)} className='px-3 btn border-none  text-white font-bold hover:bg-pink-700  bg-pink-500 rounded-md'>DELIVERED</button>
+              <button onClick={() => handleDelivered(item._id)} className='px-3 btn border-none  text-white font-bold hover:bg-gray-700  bg-gray-500 rounded-md'>DELIVERED</button>
                 <div className='ml-2'>
 
                     {/* The button to open modal */}
-                    <label htmlFor="my-modal-3" className="btn border-none hover:bg-pink-700  bg-pink-500">Add Item</label>
+                    <label htmlFor="my-modal-3" className="btn border-none hover:bg-gray-700  bg-gray-500">Add Item</label>
                     {/* Put this part before </body> tag */}
                     <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                     <div className="modal">
                         <div className="modal-box relative">
-                            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 bg-pink-500 hover:bg-pink-700">✕</label>
+                            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2 bg-gray-500 hover:bg-gray-700">✕</label>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control w-full max-w-xs">
                                     <label className="label">
@@ -121,7 +121,7 @@ const Item = () => {
                                 <input
                                     type="submit"
                                     value='Add'
-                                    className=" w-80 bg-pink-600 py-4 font-bold text-white rounded-md  mt-2 " />
+                                    className=" w-80 bg-gray-600 py-4 font-bold text-white rounded-md  mt-2 " />
 
                             </form>
                         </div>

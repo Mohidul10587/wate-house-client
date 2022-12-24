@@ -114,17 +114,17 @@ const Login = () => {
                         {firebaseError}
                         <button
                             type="submit"
-                            className="btn btn-outline w-full hover:bg-pink-700">Submit</button>
+                            className="btn btn-outline w-full hover:bg-gray-700">Submit</button>
 
 
                     </form>
 
 
-                    <small>New to this site  ? <Link className='text-pink-700' to='/signUp'>Create new account</Link></small>
+                    <small>New to this site  ? <Link className='text-gray-700' to='/signUp'>Create new account</Link></small>
 
                     <div className="divider">OR</div>
 
-                    <button onClick={() => signInWithGoogle()}    className="btn btn-outline w-full hover:bg-pink-700">Continue with google</button>
+                    <button onClick={() => signInWithGoogle()}    className="btn btn-outline w-full hover:bg-gray-700">Continue with google</button>
 
 
 

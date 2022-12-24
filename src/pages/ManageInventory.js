@@ -3,6 +3,7 @@ import React from 'react'
 import { AiOutlineDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Spinner from '../components/Spinner';
 
 const ManageInventory = () => {
 
@@ -30,18 +31,18 @@ const ManageInventory = () => {
 
 
   if (isLoading) {
-    return <div className=' flex justify-center font-bold text-3xl mt-10'> <p>Loading...</p></div>
+    return <div className=' flex justify-center font-bold text-3xl mt-10'><Spinner /></div>
   }
 
   return (
     <div className='px-2'>
 
 <div className='text-end pr-4 my-4'>
-  <Link to='/form'><button className='btn bg-pink-500 hover:bg-pink-700'>Add new item</button></Link>
+  <Link to='/form'><button className='btn bg-gray-500 hover:bg-gray-700'>Add new item</button></Link>
 </div>
 
-      <table  className="w-full  border-2 border-pink-500">
-        <thead className='h-14 md:text-xl border-2 border-pink-500'>
+      <table  className="w-full  border-2 border-gray-500">
+        <thead className='h-14 md:text-xl border-2 border-gray-500'>
           <tr>
             <th className='text-center '>Img</th>
             <th className='text-center '>Name</th>
@@ -53,7 +54,7 @@ const ManageInventory = () => {
         </thead>
         <tbody>
 
-          {items?.map(item => <tr className='h-16 border-[1px] border-pink-500' key={item._id}>
+          {items?.map(item => <tr className='h-16 border-[1px] border-gray-500' key={item._id}>
             <td className='text-center'> <p className='flex justify-center'><img className='w-14  h-10 rounded-md border-2 border-black' src={item.img} alt="" /></p></td>
             <td className='text-center'>{item.name}</td>
             <td className='text-center'> {item.price} TK</td>
