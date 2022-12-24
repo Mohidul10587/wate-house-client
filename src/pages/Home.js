@@ -13,6 +13,8 @@ const Home = () => {
     return <div className=' flex justify-center font-bold text-3xl mt-10'><Spinner/></div>
   }
 
+
+  
   return (
     <div className='-mt-10'>
       <Slider />
