@@ -149,7 +149,7 @@ const Login = () => {
 
                     <div className="divider">OR</div>
 
-                    <button onClick={() => signInWithGoogle()}    className=" w-full hover:bg-gray-700">Continue with google</button>
+                    <button onClick={() => signInWithGoogle()}    className="btn btn-outline w-full hover:bg-gray-700">Continue with google</button>
 
 
 
