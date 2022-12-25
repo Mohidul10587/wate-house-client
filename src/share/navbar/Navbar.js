@@ -18,6 +18,7 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const signedOut = () => {
+    localStorage.removeItem('token')
     signOut(auth);
     navigate('/logIn');
   }
