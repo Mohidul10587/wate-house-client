@@ -23,8 +23,33 @@ const Login = () => {
   
     useEffect(() => {
         if (user || gUser) {
-            console.log(user || gUser)
-            navigate(from, { replace: true });
+            let currentUser;
+            if (user) {
+                currentUser = {
+                    email: user.email
+                }
+            }
+            if (gUser) {
+                currentUser = {
+                    email: gUser.user.email
+                }
+            }
+            fetch('http://localhost:5000/jwt', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(currentUser)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    localStorage.setItem('token', data.token);
+                    navigate(from, { replace: true });
+                });
+
+
+
         }
     }, [user,gUser, from, navigate])
 
