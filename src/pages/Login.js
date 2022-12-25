@@ -34,7 +34,7 @@ const Login = () => {
                     email: gUser.user.email
                 }
             }
-            fetch('http://localhost:5000/jwt', {
+            fetch('https://ware-house-lymk.onrender.com/jwt', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
