@@ -19,8 +19,7 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-
-  
+    
     useEffect(() => {
         if (user || gUser) {
             let currentUser;
