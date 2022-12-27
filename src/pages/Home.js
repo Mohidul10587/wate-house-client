@@ -34,16 +34,17 @@ const Home = () => {
       <div className='text-center mt-10'><Link to='/manageInventory'>  <button className='px-3 py-3 text-white font-bold bg-gray-700   rounded-md'> Manage Inventory</button></Link>
       </div>
   
-          <h2 className="py-2 md:text-5xl text-center my-24">What our clients say</h2>
-        <div className="flex justify-between px-10 items-center bg-gray-900  text-white">
-          <div className="w-1/2 text-2xl">
+          <h2 className="py-2 text-5xl text-center my-24">What our clients say</h2>
+        <div className="md:flex justify-between px-10 items-center bg-gray-900 py-10  text-white">
+        <div className="md:w-1/2 flex md:justify-start justify-center ">
+            <img src="client.png" className='w-7/12 rounded-full' alt="" />
+
+          </div>   
+          <div className="md:w-1/2 md:text-2xl order-last mt-4 text-justify">
             <p>"I'm not a fan of buying used cars, and I'm naturally skeptical of the process and those involved. BUT, I can honestly say that the experience of buying a used vehicle from Quality Cars - and dealing with Colin in particular - was excellent. He is professional, well-informed, conscientious and his follow through was perfect. I'm very satisfied and would not hesitate to recommend them or buy another vehicle from them."</p>
             <p className="text-orange-500 font-semibold">Mohidul Islam</p><span>Faunder</span>
           </div>
-          <div className="w-1/2 flex justify-end py-10">
-            <img src="client.png" className='w-7/12 rounded-full' alt="" />
-
-          </div>
+         
         </div>
   
       <div className='bg-red-300 mt-10 h-96 text-center'>
