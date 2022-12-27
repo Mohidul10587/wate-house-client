@@ -38,7 +38,7 @@ const ManageInventory = () => {
     <div className='px-2'>
 
 <div className='text-end pr-4 my-4'>
-  <Link to='/form'><button className='btn bg-gray-500 hover:bg-gray-700'>Add new item</button></Link>
+  <Link to='/form'><button className='btn bg-gray-700'>Add new item</button></Link>
 </div>
 
       <table  className="w-full  border-2 border-gray-500">
