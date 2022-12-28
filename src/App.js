@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import MyItems from './pages/MyItems';
 import Blog from './pages/Blog';
 import NotFound from './pages/NotFound';
+import ResetPassword from './pages/ResetPassword'
 function App() {
 
   return (
@@ -26,7 +27,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/form' element={<Form />} />
             <Route path='/blog' element={<Blog />} />
-
+            <Route path='resetPassword' element={<ResetPassword />} />
             <Route path='/manageInventory' element={<ManageInventory />} />
 
             <Route path='/inventory/:id' element={<RequireAuth><Inventory /></RequireAuth>} />

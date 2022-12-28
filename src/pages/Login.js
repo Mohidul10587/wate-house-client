@@ -144,8 +144,11 @@ const Login = () => {
                     </form>
 
 
-                    <small>New to this site  ? <Link className='text-gray-700' to='/signUp'>Create new account</Link></small>
-
+                    <div className='flex justify-between text-xs'>
+                        <Link className='text-gray-700' to='/signUp'>Create new account</Link> 
+                        <Link className='text-gray-700' to='/resetPassword'>Reset password</Link> 
+                   
+                    </div>
                     <div className="divider">OR</div>
 
                     <button onClick={() => signInWithGoogle()}    className="btn btn-outline w-full hover:bg-gray-700">Continue with google</button>
